@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/clParentLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_30dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_today_special"
+                        android:textSize="@dimen/_22sp"
+                        android:fontFamily="@font/cairo_bold"
+                        android:paddingStart="@dimen/_20dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingEnd="@dimen/_20dp"
+                        android:textColor="@color/colorBlack"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_40dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_tab_grey">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/items"
+                            android:drawableStart="@drawable/items_tab_selector"
+                            android:paddingStart="@dimen/_10dp"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_tab_selector"
+                            android:textSize="@dimen/_16sp"
+                            android:textColor="@drawable/text_selector"
+                            android:layout_gravity="center"
+                            android:paddingEnd="@dimen/_10dp"
+                            android:id="@+id/tabItems"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/meals"
+                            android:drawableStart="@drawable/meal_tab_selector"
+                            android:layout_marginStart="@dimen/_5dp"
+                            android:layout_marginEnd="@dimen/_5dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_tab_selector"
+                            android:textSize="@dimen/_16sp"
+                            android:textColor="@drawable/text_selector"
+                            android:layout_gravity="center"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:id="@+id/tabMeals"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/deals"
+                            android:drawableStart="@drawable/img_tag_selector"
+                            android:paddingStart="@dimen/_15dp"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_tab_selector"
+                            android:textSize="@dimen/_16sp"
+                            android:textColor="@drawable/text_selector"
+                            android:layout_gravity="center"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:id="@+id/tabDeals"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:id="@+id/llItems">
+                    <android.support.constraint.ConstraintLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:layout_height="@dimen/_40dp"
+                        android:paddingStart="@dimen/_20dp"
+                        android:paddingEnd="@dimen/_20dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:background="@drawable/bg_header_existing_item"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/item"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/price"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/size"
+                                    />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/quantity"
+                                    />
+                            </LinearLayout>
+
+                            <android.support.constraint.ConstraintLayout
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                            </android.support.constraint.ConstraintLayout>
+
+
+                        </LinearLayout>
+                    </android.support.constraint.ConstraintLayout>
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textSize="@dimen/_16sp"
+                            android:layout_marginTop="@dimen/_50dp"
+                            android:textColor="@color/colorBlack"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/no_items_found"
+                            android:visibility="gone"
+                            android:id="@+id/tvEmptyView"
+                            />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/_5dp"
+                            android:layout_marginBottom="@dimen/_50dp"
+                            android:id="@+id/rvItems"
+                            />
+
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:id="@+id/llDeals">
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5dp"
+                        android:layout_marginBottom="@dimen/_50dp"
+                        android:id="@+id/rvDeals"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:id="@+id/llMeals">
+                    <ExpandableListView
+                        android:id="@+id/lvExpMeals"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:divider="@null"
+                        android:layout_marginBottom="@dimen/_50dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:elevation="@dimen/_2dp"
+            android:background="@color/dim_color">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:progressTint="@color/orange"
+                android:indeterminateTint="@color/orange"
+                />
+        </FrameLayout>
+        <Button
+            android:layout_width="@dimen/_100dp"
+            android:layout_height="@dimen/_40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_btn_red"
+            android:text="@string/close"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16sp"
+            android:gravity="center"
+            android:id="@+id/btnCancel"
+            android:layout_marginEnd="@dimen/_40dp"
+            android:layout_marginBottom="@dimen/_40dp"
+            android:fontFamily="@font/cairo_regular"
+            />
+    </android.support.constraint.ConstraintLayout>
+</layout>

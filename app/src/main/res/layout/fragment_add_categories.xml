@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/flParentLayout">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:padding="@dimen/_5dp"
+            android:elevation="@dimen/_2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tab_grey">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/categories"
+                            android:drawableStart="@drawable/category_tab_selector"
+                            android:paddingStart="@dimen/_10dp"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_tab_selector"
+                            android:textSize="@dimen/_16sp"
+                            android:textColor="@drawable/text_selector"
+                            android:layout_gravity="center"
+                            android:paddingEnd="@dimen/_10dp"
+                            android:id="@+id/tabCategories"
+                            />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/meals"
+                        android:drawableStart="@drawable/meal_tab_selector"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:layout_marginEnd="@dimen/_5dp"
+                        android:paddingStart="@dimen/_15dp"
+                        android:drawablePadding="@dimen/_10dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_tab_selector"
+                        android:textSize="@dimen/_16sp"
+                        android:textColor="@drawable/text_selector"
+                        android:layout_gravity="center"
+                        android:paddingEnd="@dimen/_15dp"
+                        android:id="@+id/tabMeals"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/extras"
+                        android:drawableStart="@drawable/extras_tab_selector"
+                        android:paddingStart="@dimen/_15dp"
+                        android:drawablePadding="@dimen/_10dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_tab_selector"
+                        android:textSize="@dimen/_16sp"
+                        android:textColor="@drawable/text_selector"
+                        android:layout_gravity="center"
+                        android:paddingEnd="@dimen/_15dp"
+                        android:id="@+id/tabExtras"
+                        />
+
+                </LinearLayout>
+
+                <!--container for fragment-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/container"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </FrameLayout>
+</layout>

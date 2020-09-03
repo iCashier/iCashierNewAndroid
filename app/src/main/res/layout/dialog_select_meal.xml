@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_meal"
+                    android:textSize="@dimen/_20sp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/cairo_semibold"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    />
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5dp">
+
+                    <TextView
+                        android:id="@+id/tvEmptyView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_50dp"
+                        android:fontFamily="@font/cairo_regular"
+                        android:text="@string/no_items_found"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ExpandableListView
+                        android:id="@+id/lvExpMeals"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:divider="@null"
+                        android:layout_marginBottom="@dimen/_50dp"
+                        />
+
+                    <Button
+                        android:id="@+id/btnOk"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginEnd="@dimen/_20dp"
+                        android:background="@drawable/bg_red_btn"
+                        android:fontFamily="@font/cairo_regular"
+                        android:gravity="center"
+                        android:text="@string/ok"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/btnCancel" />
+
+                    <Button
+                        android:id="@+id/btnCancel"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="@dimen/_40dp"
+                        android:background="@drawable/bg_red_btn"
+                        android:fontFamily="@font/cairo_regular"
+                        android:text="@string/cancel"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="@dimen/_5dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <FrameLayout
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            app:layout_constraintStart_toStartOf="@+id/llParentLayout"
+            app:layout_constraintTop_toTopOf="@+id/llParentLayout"
+            android:elevation="@dimen/_3dp"
+            android:id="@+id/flClose"
+            android:background="@drawable/bg_circle_red">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="X"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_30sp" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/_500dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_200dp"
+            android:layout_marginEnd="@dimen/_200dp"
+            android:id="@+id/llParentLayout"
+            android:padding="@dimen/_15dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_item_rec">
+                <LinearLayout
+                    android:id="@+id/displayLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+
+                    <HorizontalScrollView
+                        android:id="@+id/displayNumberScroller"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:layout_below="@id/displayNumberScroller"
+                        android:scrollbars="none">
+
+                        <TextView
+                            android:id="@+id/displayNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginEnd="@dimen/_8dp"
+                            android:hint="0"
+                            android:maxLines="1"
+                            android:textColor="#616161"
+                            android:textColorHint="#616161"
+                            android:textSize="60sp" />
+
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/displayLinearLayout"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:id="@+id/numbersLinearLayout"
+                        android:layout_width="@dimen/_0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+                        <LinearLayout
+                            android:id="@+id/secondLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+
+                            <Button
+                                android:id="@+id/button7"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="7"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button8"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="8"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button9"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="9"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/thirdLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/buttonRoot"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:visibility="gone"
+                                android:background="@drawable/ripple_effect_operators"
+                                android:elevation="0dp"
+                                android:text="√"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button4"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="4"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button5"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="5"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button6"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="6"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/buttonSubtraction"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="-"
+                                android:visibility="gone"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/forthLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/buttonExponentation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:visibility="gone"
+                                android:background="@drawable/ripple_effect_operators"
+                                android:elevation="0dp"
+                                android:text="^"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button1"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="1"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button2"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="2"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button3"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="3"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/buttonMultiplication"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="x"
+                                android:visibility="gone"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fifthLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/buttonPI"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_operators"
+                                android:elevation="0dp"
+                                android:visibility="gone"
+                                android:text="π"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/buttonDot"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="."
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+                            <Button
+                                android:id="@+id/button0"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="0"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+                            <Button
+                                android:id="@+id/button00"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="00"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+
+
+                            <Button
+                                android:id="@+id/buttonDivision"
+                                android:layout_width="@dimen/_50dp"
+                                android:layout_height="@dimen/_60dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/ripple_effect_numbers"
+                                android:text="/"
+                                android:visibility="gone"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_25sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonSum"
+                            android:layout_width="@dimen/_50dp"
+                            android:layout_height="@dimen/_0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/ripple_effect_numbers"
+                            android:text="+"
+                            android:layout_gravity="center"
+                            android:visibility="visible"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/_25sp" />
+                        <Button
+                            android:id="@+id/buttonCE"
+                            android:layout_width="@dimen/_50dp"
+                            android:layout_height="@dimen/_0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/ripple_effect_numbers"
+                            android:text="CLR"
+                            android:layout_gravity="center"
+                            android:visibility="visible"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_25sp" />
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

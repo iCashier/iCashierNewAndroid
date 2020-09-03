@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/clParentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/flSave"
+            android:layout_width="@dimen/_70dp"
+            android:layout_height="@dimen/_70dp"
+            android:layout_margin="@dimen/_5dp"
+            android:background="@drawable/bg_circle_red"
+            android:elevation="@dimen/_3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_save" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_65dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_frame"
+                tools:context=".fragment.MerchantHomeFragment">
+
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@drawable/bg_frame"
+                    android:scrollbars="none">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/clCotainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_frame">
+
+                        <LinearLayout
+                            android:id="@+id/llContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_frame"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_frame"
+                                android:weightSum="2">
+
+                                <android.support.constraint.ConstraintLayout
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.1">
+
+                                    <TextView
+                                        android:id="@+id/tvHomeBtn"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="@dimen/_40dp"
+                                        android:background="@drawable/bg_tab_orange"
+                                        android:drawableStart="@drawable/icon_home_white"
+                                        android:drawablePadding="@dimen/_10dp"
+                                        android:gravity="center"
+                                        android:paddingStart="@dimen/_10dp"
+                                        android:paddingEnd="@dimen/_20dp"
+                                        android:text="@string/merchant_home"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="@dimen/_16sp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10dp"
+                                        android:orientation="vertical"
+                                        android:paddingStart="@dimen/_40dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/tvHomeBtn">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical"
+                                            android:paddingEnd="@dimen/_40dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="horizontal">
+
+                                                <LinearLayout
+                                                    android:layout_width="@dimen/_0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="0.6"
+                                                    android:orientation="vertical">
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:orientation="horizontal">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_gravity="center"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:text="@string/title"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+
+                                                    </LinearLayout>
+
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="match_parent"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:gravity="center_vertical"
+                                                            android:text="@string/tagline"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+
+                                                    </LinearLayout>
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_gravity="center_vertical"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:gravity="center_vertical"
+                                                            android:text="@string/network"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+
+                                                    </LinearLayout>
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_gravity="center_vertical"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:gravity="center_vertical"
+                                                            android:text="@string/password"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+
+                                                    </LinearLayout>
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_gravity="center_vertical"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:gravity="center_vertical"
+                                                            android:text="@string/location"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+
+                                                    </LinearLayout>
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="@dimen/_0dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="2.2"
+                                                    android:orientation="vertical">
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:orientation="horizontal">
+
+                                                        <EditText
+                                                            android:id="@+id/etTittle"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:background="@drawable/bg_et_border"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:inputType="textCapWords|text"
+                                                            android:maxLines="1"
+                                                            android:paddingStart="@dimen/_15dp"
+                                                            android:paddingTop="@dimen/_2dp"
+                                                            android:paddingEnd="@dimen/_15dp"
+                                                            android:paddingBottom="@dimen/_2dp"
+                                                            android:textAlignment="viewStart"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+                                                    </LinearLayout>
+
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <EditText
+                                                            android:id="@+id/etTagLine"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:background="@drawable/bg_et_border"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:inputType="textCapWords|text"
+                                                            android:maxLines="1"
+                                                            android:paddingStart="@dimen/_15dp"
+                                                            android:paddingTop="@dimen/_2dp"
+                                                            android:paddingEnd="@dimen/_15dp"
+                                                            android:paddingBottom="@dimen/_2dp"
+                                                            android:textAlignment="viewStart"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+                                                    </LinearLayout>
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <EditText
+                                                            android:id="@+id/etNetwork"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:background="@drawable/bg_et_border"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:inputType="textCapWords|text"
+                                                            android:maxLines="1"
+                                                            android:paddingStart="@dimen/_15dp"
+                                                            android:paddingTop="@dimen/_2dp"
+                                                            android:paddingEnd="@dimen/_15dp"
+                                                            android:paddingBottom="@dimen/_2dp"
+                                                            android:textAlignment="viewStart"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+                                                    </LinearLayout>
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:orientation="horizontal">
+
+                                                        <EditText
+                                                            android:id="@+id/etPassword"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:background="@drawable/bg_et_border"
+                                                            android:fontFamily="@font/cairo_light"
+                                                            android:inputType="text"
+                                                            android:maxLines="1"
+                                                            android:paddingStart="@dimen/_15dp"
+                                                            android:paddingTop="@dimen/_2dp"
+                                                            android:paddingEnd="@dimen/_15dp"
+                                                            android:paddingBottom="@dimen/_2dp"
+                                                            android:textAlignment="viewStart"
+                                                            android:textColor="@color/colorBlack"
+                                                            android:textSize="@dimen/_16sp" />
+
+                                                    </LinearLayout>
+
+                                                    <TextView
+                                                        android:id="@+id/tvLocation"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/_30dp"
+                                                        android:layout_marginTop="@dimen/_8dp"
+                                                        android:background="@drawable/bg_et_border"
+                                                        android:ellipsize="marquee"
+                                                        android:fontFamily="@font/cairo_light"
+                                                        android:gravity="center_vertical|start"
+                                                        android:marqueeRepeatLimit="marquee_forever"
+                                                        android:paddingStart="@dimen/_15dp"
+                                                        android:paddingTop="@dimen/_2dp"
+                                                        android:paddingEnd="@dimen/_15dp"
+                                                        android:paddingBottom="@dimen/_2dp"
+                                                        android:scrollHorizontally="true"
+                                                        android:singleLine="true"
+                                                        android:textAlignment="viewStart"
+                                                        android:textColor="@color/colorBlack"
+                                                        android:textSize="@dimen/_16sp" />
+
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+
+                                            <android.support.constraint.ConstraintLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_135dp"
+                                                android:layout_marginTop="@dimen/_10dp"
+                                                android:background="@drawable/bg_border_black"
+                                                android:padding="@dimen/_1dp">
+
+                                                <FrameLayout
+                                                    android:id="@+id/frameMap"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent">
+
+                                                </FrameLayout>
+
+                                                <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    app:layout_constraintBottom_toBottomOf="parent"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toTopOf="parent">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/_40dp"
+                                                        android:layout_height="@dimen/_50dp"
+                                                        android:src="@drawable/icon_red_marker" />
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/_20dp"
+                                                        android:layout_height="@dimen/_20dp"
+                                                        android:layout_marginTop="@dimen/_5dp"
+                                                        android:src="@drawable/icon_tick"
+                                                        app:layout_constraintEnd_toEndOf="parent"
+                                                        app:layout_constraintStart_toStartOf="parent"
+                                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                                </android.support.constraint.ConstraintLayout>
+
+                                            </android.support.constraint.ConstraintLayout>
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/_5dp"
+                                                android:text="@string/services"
+                                                android:textColor="@color/colorBlack"
+                                                android:textSize="@dimen/_16sp" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_100dp"
+                                                android:layout_gravity="center"
+                                                android:layout_marginTop="@dimen/_5dp"
+                                                android:orientation="horizontal">
+
+                                                <LinearLayout
+                                                    android:layout_width="@dimen/_0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_weight="1">
+
+                                                    <ImageView
+                                                        android:id="@+id/imgScrollLeft"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginTop="@dimen/_20dp"
+                                                        android:src="@drawable/icon_arrow_gray" />
+                                                </LinearLayout>
+
+                                                <HorizontalScrollView
+                                                    android:layout_width="@dimen/_0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginEnd="@dimen/_10dp"
+                                                    android:layout_weight="20">
+
+                                                    <LinearLayout
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content">
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llSmokingArea"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgSmokingArea"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_smoking_area" />
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/smoking_area" />
+                                                        </LinearLayout>
+
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llDelivery"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgDelivery"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_delivery" />
+
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/delivery" />
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llLiveTv"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgLiveTv"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_live_tv" />
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/live_tv" />
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llReservation"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgReservation"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_reservation" />
+
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/reservation" />
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llParking"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgParking"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_parking" />
+
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/parking" />
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llPickup"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgPickup"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_pickup" />
+
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/pickup" />
+                                                        </LinearLayout>
+
+                                                        <LinearLayout
+                                                            android:id="@+id/llCatering"
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginEnd="@dimen/_10dp"
+                                                            android:orientation="vertical">
+
+                                                            <FrameLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center">
+
+                                                                <ImageView
+                                                                    android:id="@+id/imgCatering"
+                                                                    android:layout_width="@dimen/_40dp"
+                                                                    android:layout_height="@dimen/_40dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:src="@drawable/bg_catering" />
+
+                                                            </FrameLayout>
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center"
+                                                                android:layout_marginTop="@dimen/_5dp"
+                                                                android:gravity="center"
+                                                                android:text="@string/catering" />
+                                                        </LinearLayout>
+
+                                                    </LinearLayout>
+                                                </HorizontalScrollView>
+
+                                                <LinearLayout
+                                                    android:layout_width="@dimen/_0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_weight="1">
+
+                                                    <ImageView
+                                                        android:id="@+id/imgSrcollRight"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginTop="@dimen/_20dp"
+                                                        android:src="@drawable/icon_arrow_black" />
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_10dp"
+                                            android:paddingBottom="@dimen/_10dp">
+
+                                            <TextView
+                                                android:id="@+id/tvAddDeal"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/_40dp"
+                                                android:background="@drawable/bg_tab_orange"
+                                                android:drawableStart="@drawable/icon_tag_white"
+                                                android:drawablePadding="@dimen/_10dp"
+                                                android:gravity="center"
+                                                android:paddingStart="@dimen/_10dp"
+                                                android:paddingEnd="@dimen/_20dp"
+                                                android:text="@string/add_deal"
+                                                android:textColor="@color/colorWhite"
+                                                android:textSize="@dimen/_16sp"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <TextView
+                                                android:id="@+id/tvTodaySpecial"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/_40dp"
+                                                android:background="@drawable/bg_tab_orange"
+                                                android:drawableStart="@drawable/icon_burger_white"
+                                                android:drawablePadding="@dimen/_10dp"
+                                                android:gravity="center"
+                                                android:paddingStart="@dimen/_10dp"
+                                                android:paddingEnd="@dimen/_20dp"
+                                                android:text="@string/today_special"
+                                                android:textColor="@color/colorWhite"
+                                                android:textSize="@dimen/_16sp"
+                                                app:layout_constraintEnd_toEndOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+                                    </LinearLayout>
+
+
+                                </android.support.constraint.ConstraintLayout>
+
+                                <android.support.constraint.ConstraintLayout
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.9">
+
+                                    <android.support.constraint.ConstraintLayout
+                                        android:id="@+id/clLogo"
+                                        android:layout_width="@dimen/_78dp"
+                                        android:layout_height="@dimen/_78dp"
+                                        android:layout_marginTop="@dimen/_60dp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <LinearLayout
+                                            android:layout_width="@dimen/_68dp"
+                                            android:layout_height="@dimen/_68dp"
+                                            android:background="@drawable/bg_document_image"
+                                            android:padding="@dimen/_1dp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent">
+
+                                            <ImageView
+                                                android:id="@+id/imgLogo"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:scaleType="centerCrop"
+                                                android:src="@drawable/placeholder_logo" />
+
+                                        </LinearLayout>
+
+                                        <ImageView
+                                            android:id="@+id/imgCamera1"
+                                            android:layout_width="@dimen/_38dp"
+                                            android:layout_height="@dimen/_38dp"
+                                            android:elevation="@dimen/_2dp"
+                                            android:src="@drawable/icon_photo"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent" />
+
+                                    </android.support.constraint.ConstraintLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_60dp"
+                                        android:layout_marginTop="@dimen/_5dp"
+                                        android:layout_marginEnd="@dimen/_80dp"
+                                        android:orientation="vertical"
+                                        app:layout_constraintTop_toBottomOf="@id/clLogo">
+
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/_130dp"
+                                            android:layout_gravity="center"
+                                            android:layout_marginStart="@dimen/_10dp">
+
+                                            <android.support.v7.widget.RecyclerView
+                                                android:id="@+id/rvImages"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent" />
+
+                                        </android.support.constraint.ConstraintLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_8dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:elevation="@dimen/_2dp"
+                                                android:src="@drawable/icon_web"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <EditText
+                                                android:id="@+id/etSite"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginStart="@dimen/_8dp"
+                                                android:background="@drawable/bg_et_border"
+                                                android:fontFamily="@font/cairo_regular"
+                                                android:inputType="text"
+                                                android:maxLength="255"
+                                                android:maxLines="1"
+                                                android:paddingStart="@dimen/_45dp"
+                                                android:textAlignment="viewStart"
+                                                android:textColor="@color/colorBlack"
+                                                android:textSize="@dimen/_14sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_4dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:elevation="@dimen/_2dp"
+                                                android:src="@drawable/icon_cal"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <EditText
+                                                android:id="@+id/etPhone"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginStart="@dimen/_8dp"
+                                                android:background="@drawable/bg_et_border"
+                                                android:fontFamily="@font/cairo_regular"
+                                                android:inputType="phone"
+                                                android:maxLength="15"
+                                                android:maxLines="1"
+                                                android:textColor="@color/colorBlack"
+                                                android:paddingStart="@dimen/_45dp"
+                                                android:textAlignment="viewStart"
+                                                android:textSize="@dimen/_14sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_4dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:elevation="@dimen/_2dp"
+                                                android:src="@drawable/icon_whatsapp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <EditText
+                                                android:id="@+id/etWhatsapp"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginStart="@dimen/_8dp"
+                                                android:background="@drawable/bg_et_border"
+                                                android:fontFamily="@font/cairo_regular"
+                                                android:inputType="phone"
+                                                android:maxLength="15"
+                                                android:maxLines="1"
+                                                android:textColor="@color/colorBlack"
+                                                android:paddingStart="@dimen/_45dp"
+                                                android:textAlignment="viewStart"
+                                                android:textSize="@dimen/_14sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_4dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:elevation="@dimen/_2dp"
+                                                android:src="@drawable/icon_fb"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <EditText
+                                                android:id="@+id/etFB"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginStart="@dimen/_8dp"
+                                                android:background="@drawable/bg_et_border"
+                                                android:fontFamily="@font/cairo_regular"
+                                                android:inputType="text"
+                                                android:maxLength="255"
+                                                android:maxLines="1"
+                                                android:textColor="@color/colorBlack"
+                                                android:paddingStart="@dimen/_45dp"
+                                                android:textAlignment="viewStart"
+                                                android:textSize="@dimen/_14sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_4dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:elevation="@dimen/_2dp"
+                                                android:src="@drawable/icon_instagram"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <EditText
+                                                android:id="@+id/etInsta"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginStart="@dimen/_8dp"
+                                                android:background="@drawable/bg_et_border"
+                                                android:fontFamily="@font/cairo_regular"
+                                                android:inputType="text"
+                                                android:maxLength="255"
+                                                android:maxLines="1"
+                                                android:textColor="@color/colorBlack"
+                                                android:paddingStart="@dimen/_45dp"
+                                                android:textAlignment="viewStart"
+                                                android:textSize="@dimen/_14sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+
+                                        <android.support.constraint.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_4dp">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:elevation="@dimen/_2dp"
+                                                android:src="@drawable/icon_twitter"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintStart_toStartOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+
+                                            <EditText
+                                                android:id="@+id/etTwitter"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginStart="@dimen/_8dp"
+                                                android:background="@drawable/bg_et_border"
+                                                android:fontFamily="@font/cairo_regular"
+                                                android:inputType="text"
+                                                android:maxLength="255"
+                                                android:maxLines="1"
+                                                android:paddingStart="@dimen/_45dp"
+                                                android:textColor="@color/colorBlack"
+                                                android:textAlignment="viewStart"
+                                                android:textSize="@dimen/_14sp"
+                                                app:layout_constraintBottom_toBottomOf="parent"
+                                                app:layout_constraintTop_toTopOf="parent" />
+                                        </android.support.constraint.ConstraintLayout>
+
+
+                                    </LinearLayout>
+                                </android.support.constraint.ConstraintLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </android.support.constraint.ConstraintLayout>
+
+                </ScrollView>
+            </FrameLayout>
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

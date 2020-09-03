@@ -1,0 +1,101 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.icashier.app"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 12
+        versionName "1.07"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../icashier.jks")
+            storePassword "123456"
+            keyAlias "icashieralias"
+            keyPassword "123456"
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled true
+    }
+    dexOptions {
+        jumboMode = true
+        // here heap size give 4g i got this thing from https://groups.google.com/forum/#!topic/adt-dev/P_TLBTyFWVY
+
+        javaMaxHeapSize "4g"
+    }
+
+    bundle {
+        language {
+            // Specifies that the app bundle should not support
+            // configuration APKs for language resources. These
+            // resources are instead packaged with each base and
+            // dynamic feature APK.
+            enableSplit = false
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.firebase:firebase-messaging:17.5.0'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    implementation 'com.google.android:flexbox:1.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.guilhe:seekbar-ranged-view:1.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+   /* implementation 'com.github.darsh2:MultipleImageSelect:3474549'*/
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+    implementation 'com.google.android.play:core:1.6.0'
+    implementation 'com.airbnb.android:lottie:2.5.0'
+    implementation 'geidea.net.spectratechlib_api:geidea_spectratechlib_api:1.0.32'
+    implementation 'com.github.dbachelder:CreditCardEntry:1.4.9'
+    implementation 'com.google.firebase:firebase-analytics:16.0.8'
+    implementation 'com.google.android.libraries.places:places:1.1.0'
+
+    implementation project(':paytabs_sdk-v4.0.0')
+    implementation project(':multipleimageselect')
+    implementation files('libs/ePOS2.jar')
+
+
+}
+apply plugin: 'com.google.gms.google-services'

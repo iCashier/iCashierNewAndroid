@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<android.support.constraint.ConstraintLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/clParentLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_15dp"
+        android:layout_marginEnd="@dimen/_15dp"
+        android:layout_marginTop="@dimen/_15dp"
+        android:layout_marginStart="@dimen/_65dp"
+        android:background="@drawable/bg_frame"
+        android:elevation="@dimen/_2dp"
+        android:padding="@dimen/_5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_40dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_30dp"
+                android:orientation="horizontal">
+
+                <!--layout for codes tab-->
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/llCodes"
+                    android:visibility="visible"
+                    android:orientation="vertical"
+                    android:layout_weight="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:orientation="horizontal">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_et_border"
+                            android:layout_marginEnd="@dimen/_10dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:id="@+id/clDinein"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/dine_in_tab"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:gravity="center_vertical"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:drawableStart="@drawable/icon_dine_in"
+                                />
+                            <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:gravity="center_vertical"
+                                android:buttonTint="@color/orange"
+                                android:id="@+id/cbDinein"
+                                android:clickable="false"
+                                android:checked="true"
+                                />
+                        </android.support.constraint.ConstraintLayout>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_et_border"
+                            android:layout_marginEnd="@dimen/_10dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:id="@+id/clTakeout"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/take_out_tab"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:gravity="center_vertical"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:drawableStart="@drawable/icon_takeout"
+                                />
+                            <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:gravity="center_vertical"
+                                android:buttonTint="@color/orange"
+                                android:id="@+id/cbTakeout"
+                                android:clickable="false"
+                                android:checked="true"
+                                />
+                        </android.support.constraint.ConstraintLayout>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_et_border"
+                            android:layout_marginEnd="@dimen/_10dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:id="@+id/clItems"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/items"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:gravity="center_vertical"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:drawableStart="@drawable/icon_burger_black"
+                                />
+                            <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:gravity="center_vertical"
+                                android:buttonTint="@color/orange"
+                                android:id="@+id/cbItems"
+                                android:clickable="false"
+                                android:checked="true"
+                                />
+                        </android.support.constraint.ConstraintLayout>
+                    </LinearLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:textSize="@dimen/_16sp"
+                            android:layout_marginTop="@dimen/_50dp"
+                            android:textColor="@color/colorBlack"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/no_codes_found"
+                            android:visibility="gone"
+                            android:id="@+id/tvEmptyView"
+                            />
+                        <android.support.v7.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/rvAll">
+
+                        </android.support.v7.widget.RecyclerView>
+                    </android.support.constraint.ConstraintLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/llCode"
+                        android:visibility="gone"
+                        android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:text="@string/your_code"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:textSize="@dimen/_18sp"
+                        android:layout_marginTop="@dimen/_80dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/_140dp"
+                        android:layout_height="@dimen/_140dp"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:id="@+id/imgQr"
+                        android:background="@drawable/def_user"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:text="Order #T009"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:textSize="@dimen/_16sp"
+                        android:id="@+id/tvOrderNo"
+                        android:layout_marginTop="@dimen/_20dp"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/share"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:id="@+id/imgShare"
+                        />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
+</layout>

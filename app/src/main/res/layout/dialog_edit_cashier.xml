@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_100dp"
+            android:layout_marginStart="@dimen/_100dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:elevation="@dimen/_2dp"
+            app:cardCornerRadius="@dimen/_10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/ll_base"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_40dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_fields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_20dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rlName"
+                        android:layout_width="@dimen/_140dp"
+                        android:layout_height="@dimen/_50dp">
+
+                        <ImageView
+                            android:id="@+id/imgName"
+                            android:layout_width="@dimen/_30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/customer" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:layout_toEndOf="@id/imgName"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/name_label"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlNameField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50dp"
+                        android:layout_marginEnd="@dimen/_50dp"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/rlName"
+                        android:layout_toStartOf="@id/imgEdit">
+
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="start|center_vertical"
+                            android:imeOptions="actionDone"
+                            android:inputType="textCapWords"
+                            android:maxLength="80"
+                            android:maxLines="1"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingStart="@dimen/_20dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_18sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlPassword"
+                        android:layout_width="@dimen/_140dp"
+                        android:layout_height="@dimen/_50dp"
+                        android:visibility="visible"
+                        android:layout_below="@id/rlName">
+
+                        <ImageView
+                            android:id="@+id/imgPassword"
+                            android:layout_width="@dimen/_30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/lock" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:layout_toEndOf="@id/imgPassword"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/old_password_label"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlPasswordField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50dp"
+                        android:visibility="visible"
+                        android:layout_below="@id/rlNameField"
+                        android:layout_marginEnd="@dimen/_50dp"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/rlPassword"
+                        android:layout_toStartOf="@id/imgEdit">
+
+                        <EditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="start|center_vertical"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:maxLength="40"
+                            android:maxLines="1"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingStart="@dimen/_20dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_18sp" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/imgCashier"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="@dimen/_100dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="@dimen/_30dp"
+                        android:layout_marginEnd="@dimen/_30dp"
+                        android:padding="@dimen/_1dp"
+                        android:background="@drawable/bg_document_image"
+                        android:src="@drawable/def_user" />
+
+                    <ImageView
+                        android:id="@+id/imgEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/imgCashier"
+                        android:layout_alignStart="@id/imgCashier"
+                        android:layout_marginBottom="-25dp"
+                        android:layout_marginStart="-25dp"
+                        android:elevation="@dimen/_2dp"
+                        android:src="@drawable/icon_photo" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_change"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/rlPasswordField"
+                        android:layout_marginEnd="@dimen/_50dp"
+                        android:layout_toStartOf="@id/imgEdit"
+                        android:paddingBottom="@dimen/_10dp"
+                        android:paddingTop="@dimen/_10dp">
+
+                        <CheckBox
+                            android:id="@+id/cb_pass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_10dp"
+                            android:layout_toStartOf="@id/cb_pass"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/change_password"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_14sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlNewPassword"
+                        android:layout_width="@dimen/_140dp"
+                        android:layout_height="@dimen/_50dp"
+                        android:layout_below="@id/rl_change"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imgNewPassword"
+                            android:layout_width="@dimen/_30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/lock" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:layout_toEndOf="@id/imgNewPassword"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/new_password_label"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlNewPasswordField"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50dp"
+                        android:layout_below="@id/rl_change"
+                        android:layout_marginEnd="@dimen/_50dp"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/rlPassword"
+                        android:layout_toStartOf="@id/imgEdit"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/etNewPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_10dp"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="start|center_vertical"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:maxLength="40"
+                            android:maxLines="1"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingStart="@dimen/_20dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_18sp" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40dp">
+
+                    <TextView
+                        android:id="@+id/tvCancel"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="@dimen/_40dp"
+                        android:background="@drawable/bg_btn_red"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:gravity="center"
+                        android:text="@string/cancel"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvUpdate"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_marginEnd="@dimen/_20dp"
+                        android:background="@drawable/bg_btn_red"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:gravity="center"
+                        android:text="@string/update"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvCancel" />
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

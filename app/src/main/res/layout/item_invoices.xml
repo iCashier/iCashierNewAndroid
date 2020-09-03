@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:background="@drawable/bg_primary_catgory"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/colorBlack"
+            android:text="Toast"
+            android:id="@+id/tvInvoiceId"
+            android:paddingEnd="@dimen/_10dp"
+            />
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/colorBlack"
+            android:text="Toast"
+            android:id="@+id/tvTitle"
+            android:paddingEnd="@dimen/_10dp"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/colorBlack"
+            android:text="Toast"
+            android:id="@+id/tvCustomerName"
+            android:paddingEnd="@dimen/_10dp"
+            />
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/colorBlack"
+            android:text="Toast"
+            android:id="@+id/tvDate"
+            android:paddingEnd="@dimen/_10dp"
+            />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:padding="@dimen/_10dp"
+                android:src="@drawable/delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgEditPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10dp"
+                android:visibility="gone"
+                android:src="@drawable/edit"
+                app:layout_constraintEnd_toStartOf="@+id/imgDelete" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

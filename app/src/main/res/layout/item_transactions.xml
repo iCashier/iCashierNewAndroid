@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:background="@drawable/bg_primary_catgory"
+        android:layout_marginBottom="@dimen/_5dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_plus_selector"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/_10dp"
+            android:id="@+id/imgPlusMinus"
+            />
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:layout_marginStart="@dimen/_5dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp"
+            android:fontFamily="@font/cairo_semibold"
+            android:drawablePadding="@dimen/_10dp"
+            android:text="@string/date_label"
+            android:id="@+id/tvDate"
+            />
+
+
+
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/_5dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="@string/receipt_heading"
+            android:id="@+id/tvReceipt"
+            />
+
+
+        <TextView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/_5dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp"
+            android:fontFamily="@font/cairo_semibold"
+            android:text="@string/amount_sr"
+            android:id="@+id/tvPrice"
+            />
+
+
+
+        <FrameLayout
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/_10dp"
+                android:layout_marginStart="@dimen/_5dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/cairo_semibold"
+                android:text="@string/method"
+                android:id="@+id/tvPayment"
+                android:drawableEnd="@drawable/cash_card_selector"
+                />
+        </FrameLayout>
+
+
+
+
+
+        <FrameLayout
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/refund"
+                android:id="@+id/imgRefund"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20dp"
+            android:id="@+id/llItems"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:background="@drawable/bg_header_transaction_items"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:text="@string/name"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:text="@string/price_sr"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:text="@string/size"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:text="@string/count"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16sp"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:text="Extras"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:id="@+id/rvItems">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_total_details"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10dp"
+                    android:elevation="@dimen/_2dp"
+                    android:layout_marginTop="@dimen/_5dp"
+                    android:layout_marginEnd="@dimen/_15dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:layout_gravity="end">
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingEnd="@dimen/_20dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/subtotal"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="SR 0.00"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/turkishGreen"
+                            android:textSize="@dimen/_20sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:id="@+id/tvSubTotal"
+                            />
+                    </android.support.constraint.ConstraintLayout>
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingEnd="@dimen/_20dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/delCharges">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delivery_charges"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_20sp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SR 0.00"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/turkishGreen"
+                            android:textSize="@dimen/_20sp"
+                            android:id="@+id/tvDeliveryCharges"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingEnd="@dimen/_20dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tax"
+                            android:id="@+id/tvViewTax"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SR 0.00"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/turkishGreen"
+                            android:textSize="@dimen/_20sp"
+                            android:id="@+id/tvTax"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
+                    </android.support.constraint.ConstraintLayout>
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingEnd="@dimen/_20dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/clCustomAmount">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/custom_amount"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_20sp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/turkishGreen"
+                            android:textSize="@dimen/_20sp"
+                            android:text="SR 0.00"
+                            android:id="@+id/tvCustomAmount"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingEnd="@dimen/_20dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_20sp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cairo_bold"
+                            android:textColor="@color/turkishGreen"
+                            android:textSize="@dimen/_20sp"
+                            android:text="0.00SR"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:id="@+id/tvTotal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/clParentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_40dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_30dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rlNotification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_20dp">
+
+                        <ImageView
+                            android:id="@+id/imgNotification"
+                            android:layout_width="@dimen/_25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/icon_notifications" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5dp"
+                            android:layout_marginStart="@dimen/_5dp"
+                            android:layout_toEndOf="@id/imgNotification"
+                            android:layout_toStartOf="@id/switchNotification"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/notify_customers_when_order_is_ready_for_pickup"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <Switch
+                            android:id="@+id/switchNotification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/CustomSwitch"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_20dp">
+
+                        <ImageView
+                            android:id="@+id/imgDuration"
+                            android:layout_width="@dimen/_25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@id/txtDuration"
+                            android:layout_alignTop="@id/txtDuration"
+                            android:scaleType="center"
+                            android:src="@drawable/timer" />
+
+                        <TextView
+                            android:id="@+id/txtDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5dp"
+                            android:layout_marginStart="@dimen/_5dp"
+                            android:layout_toEndOf="@id/imgDuration"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/delivery_duration"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txtDuration"
+                            android:layout_alignStart="@id/txtDuration"
+                            android:orientation="vertical"
+                            android:id="@+id/lay">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvProgess"
+                                android:textSize="@dimen/_16sp"
+                                android:textColor="@color/colorBlack"
+                                android:layout_gravity="center"
+                                />
+                            <SeekBar
+                                android:id="@+id/seekbarDuration"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:min="0"
+                                android:max="120"
+                                android:progress="0"
+                                android:thumb="@drawable/icon_circle"
+                                android:layout_gravity="center_vertical"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:paddingTop="@dimen/_10dp"
+                                android:paddingBottom="@dimen/_10dp"
+                                android:progressTint="#4ccf1f"
+                                />
+                        </LinearLayout>
+
+
+
+                        <TextView
+                            android:id="@+id/txtMinDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@id/lay"
+                            android:layout_below="@id/lay"
+                            android:fontFamily="@font/cairo_light"
+                            android:text="@string/_5_mins"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_12sp" />
+
+                        <TextView
+                            android:id="@+id/txtMaxDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignEnd="@id/lay"
+                            android:layout_below="@id/lay"
+                            android:fontFamily="@font/cairo_light"
+                            android:text="@string/_2_hours"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_12sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_20dp">
+
+                        <ImageView
+                            android:id="@+id/imgCod"
+                            android:layout_width="@dimen/_25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/cash_small" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5dp"
+                            android:layout_marginStart="@dimen/_5dp"
+                            android:layout_toEndOf="@id/imgCod"
+                            android:layout_toStartOf="@id/switchCod"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/cash_on_delivery"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <Switch
+                            android:id="@+id/switchCod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/CustomSwitch"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_20dp">
+
+                        <ImageView
+                            android:id="@+id/imgDelServices"
+                            android:layout_width="@dimen/_25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/delivery" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5dp"
+                            android:layout_marginStart="@dimen/_5dp"
+                            android:layout_toEndOf="@id/imgDelServices"
+                            android:layout_toStartOf="@id/switchDelServices"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/delivery_services"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <Switch
+                            android:id="@+id/switchDelServices"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/CustomSwitch"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/imgAutoCashier"
+                            android:layout_width="@dimen/_25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:scaleType="center"
+                            android:src="@drawable/user" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5dp"
+                            android:layout_marginStart="@dimen/_5dp"
+                            android:layout_toEndOf="@id/imgAutoCashier"
+                            android:layout_toStartOf="@id/switchAutoCashier"
+                            android:fontFamily="@font/cairo_regular"
+                            android:text="@string/auto_cashier"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <Switch
+                            android:id="@+id/switchAutoCashier"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/CustomSwitch"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_30dp" />
+
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flSave"
+            android:layout_width="@dimen/_70dp"
+            android:layout_height="@dimen/_70dp"
+            android:layout_margin="@dimen/_5dp"
+            android:background="@drawable/bg_circle_red"
+            android:elevation="@dimen/_3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_save" />
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

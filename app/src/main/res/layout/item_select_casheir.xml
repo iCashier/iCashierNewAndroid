@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/_220dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10dp"
+        android:id="@+id/clParentLayout"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="@dimen/_200dp"
+            android:layout_height="@dimen/_120dp"
+            android:background="@drawable/bg_item_rec"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/clLay"
+            android:layout_marginStart="@dimen/_15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:padding="@dimen/_10dp"
+                android:text="@string/logout"
+                android:textSize="@dimen/_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/cairo_semibold"
+                android:textColor="@color/turkishGreen"
+                android:id="@+id/tvLogout"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_60dp"
+                app:layout_constraintStart_toStartOf="@+id/clLay">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="abcd"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp"
+                    android:textAlignment="viewStart"
+                    android:fontFamily="@font/cairo_bold"
+                    android:id="@+id/tvName"
+                    android:layout_marginTop="@dimen/_5dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_16sp"
+                    android:textAlignment="viewStart"
+                    android:id="@+id/tvDate"
+                    android:fontFamily="@font/cairo_regular"
+                    android:layout_marginTop="@dimen/_5dp"
+                    />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bg_item_added"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_12dp"
+                android:id="@+id/imgSelect"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/_65dp"
+            android:layout_height="@dimen/_65dp"
+            android:padding="@dimen/_2dp"
+            android:id="@+id/flImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_turkish_green_circle">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/placeholder_logo"
+                android:id="@+id/imgItem"
+                />
+        </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

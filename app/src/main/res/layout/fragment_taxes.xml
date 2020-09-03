@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/clParentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_40dp"
+                android:padding="@dimen/_30dp">
+
+                <RelativeLayout
+                    android:id="@+id/rlTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp">
+
+                    <ImageView
+                        android:id="@+id/imgTitle"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/imgTitle"
+                        android:fontFamily="@font/cairo_regular"
+                        android:text="@string/title_colon"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlTitleField"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_marginEnd="@dimen/_5dp"
+                    android:layout_toEndOf="@id/rlValue">
+
+                    <EditText
+                        android:id="@+id/etTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35dp"
+
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:background="@drawable/bg_et_border"
+                        android:fontFamily="@font/cairo_regular"
+                        android:gravity="start|center_vertical"
+                        android:imeOptions="actionDone"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/_2dp"
+                        android:paddingStart="@dimen/_20dp"
+                        android:paddingTop="@dimen/_2dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_below="@id/rlTitle">
+
+                    <ImageView
+                        android:id="@+id/imgType"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:scaleType="center"
+                        android:src="@drawable/filter" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/imgType"
+                        android:fontFamily="@font/cairo_regular"
+                        android:text="@string/type"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_types"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_below="@id/rlTitleField"
+                    android:layout_marginStart="@dimen/_10dp"
+                    android:layout_toEndOf="@id/rlValue"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvPercent"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/bg_size_selector"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:gravity="center"
+                        android:text="%"
+                        android:textColor="@drawable/text_selector_yellow"
+                        android:textSize="@dimen/_16sp"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDollar"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:background="@drawable/bg_size_selector"
+                        android:fontFamily="@font/cairo_semibold"
+                        android:gravity="center"
+                        android:text="$"
+                        android:textColor="@drawable/text_selector_yellow"
+                        android:textSize="@dimen/_16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_below="@id/rlType">
+
+                    <ImageView
+                        android:id="@+id/imgValue"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:scaleType="center"
+                        android:src="@drawable/cash_small" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/imgValue"
+                        android:fontFamily="@font/cairo_regular"
+                        android:text="@string/value_percent"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlValueField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_below="@id/rlType"
+                    android:layout_marginEnd="@dimen/_5dp"
+                    android:layout_toEndOf="@id/rlValue">
+
+                    <EditText
+                        android:id="@+id/etValue"
+                        android:layout_width="@dimen/_100dp"
+                        android:layout_height="@dimen/_35dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:background="@drawable/bg_et_border"
+                        android:fontFamily="@font/cairo_regular"
+                        android:gravity="start|center_vertical"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:paddingBottom="@dimen/_2dp"
+                        android:paddingStart="@dimen/_20dp"
+                        android:paddingTop="@dimen/_2dp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_18sp" />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/flSave"
+                    android:layout_width="@dimen/_70dp"
+                    android:layout_height="@dimen/_70dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/rlType"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@drawable/bg_circle_red"
+                    android:elevation="@dimen/_3dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_save" />
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlTaxes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_below="@id/flSave"
+                    android:layout_marginTop="@dimen/_10dp">
+
+                    <ImageView
+                        android:id="@+id/imgTaxes"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_taxes" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_toEndOf="@id/imgTaxes"
+                        android:fontFamily="@font/cairo_regular"
+                        android:text="@string/list_of_taxes"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sp" />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvTaxes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlTaxes"
+                    android:layout_marginStart="@dimen/_40dp" />
+
+            </RelativeLayout>
+        </FrameLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

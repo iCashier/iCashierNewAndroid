@@ -1,0 +1,157 @@
+{
+  "project_info": {
+    "project_number": "624259703105",
+    "firebase_url": "https://imenu-9ff7c.firebaseio.com",
+    "project_id": "imenu-9ff7c",
+    "storage_bucket": "imenu-9ff7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624259703105:android:b3d117f79141e849",
+        "android_client_info": {
+          "package_name": "com.icashier.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624259703105-qhl8jju1ec3tdgfj8u9dpq3517euaud0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.icashier.app",
+            "certificate_hash": "364a46338fe2f3508fe62d44f6dad0593902da0f"
+          }
+        },
+        {
+          "client_id": "624259703105-ejmgk1iivel93kgu2fiumgd62ks2m0ij.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.icashier.app",
+            "certificate_hash": "020a8c0cf33b923933ef1440b0618b2efefbf769"
+          }
+        },
+        {
+          "client_id": "624259703105-onf055i1qmli7t5cs6fm83dklbfdtfdf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.icashier.app",
+            "certificate_hash": "8c8d45f94006a869daa396de1dae9b875dc7be3e"
+          }
+        },
+        {
+          "client_id": "624259703105-rfhql4d9qb1dd0t11v55ja5c759ai3aq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.icashier.app",
+            "certificate_hash": "98c5443fc4d2d047b958216ef9b9f84f1fcb6f87"
+          }
+        },
+        {
+          "client_id": "624259703105-7fa60qmbdtrotssklh6ukfplfb7hfpik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBzbAuqFFpPrbfwntfCwFAzHAQyCDaGqE"
+        },{
+          "current_key": "AIzaSyAJsbgJs86cnywql4bFUQf9xwBrd0e-ucU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624259703105-7i7pmfovq0qdu9ouk772cfgt1gcj29h8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "624259703105-v22u9fjd3a41u5f4k6gbd86l5gun6em3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iCashier"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624259703105:android:ace2af14f8d3737d",
+        "android_client_info": {
+          "package_name": "com.imenu.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "624259703105-0ugr6ldti0sa6d692gl3jaccbd5a4idt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imenu.app",
+            "certificate_hash": "98c5443fc4d2d047b958216ef9b9f84f1fcb6f87"
+          }
+        },
+        {
+          "client_id": "624259703105-j7isn25ld4jubrel9tff6de33c1pdggt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imenu.app",
+            "certificate_hash": "020a8c0cf33b923933ef1440b0618b2efefbf769"
+          }
+        },
+        {
+          "client_id": "624259703105-3hrfgd76o2scue8rfgu0d2v861rhb714.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imenu.app",
+            "certificate_hash": "8845a91138c3a4f04fc19aef5250188d8ea6df1b"
+          }
+        },
+        {
+          "client_id": "624259703105-2a1tknl9mfcghkmqei2ppfr763bqdnbk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imenu.app",
+            "certificate_hash": "8925836f46370c3d00e27d9f8e1344cec2c13350"
+          }
+        },
+        {
+          "client_id": "624259703105-sp7lv09cml2doqs8ic4egurec46snhj8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imenu.app",
+            "certificate_hash": "b1f23a5c6f1be0525903aa5b38c4663438f3d735"
+          }
+        },
+        {
+          "client_id": "624259703105-7fa60qmbdtrotssklh6ukfplfb7hfpik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJsbgJs86cnywql4bFUQf9xwBrd0e-ucU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "624259703105-7i7pmfovq0qdu9ouk772cfgt1gcj29h8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "624259703105-v22u9fjd3a41u5f4k6gbd86l5gun6em3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iCashier"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

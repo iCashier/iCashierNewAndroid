@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/llParentLayout"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30dp"
+                    android:drawablePadding="@dimen/_10dp"
+                    android:drawableStart="@drawable/icon_title"
+                    android:fontFamily="@font/cairo_semibold"
+                    android:gravity="center_vertical"
+                    android:text="@string/tittle"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:drawablePadding="@dimen/_15dp"
+                    android:drawableStart="@drawable/icon_filter"
+                    android:fontFamily="@font/cairo_semibold"
+                    android:gravity="center_vertical"
+                    android:text="@string/type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:drawablePadding="@dimen/_10dp"
+                    android:drawableStart="@drawable/cash_small"
+                    android:fontFamily="@font/cairo_semibold"
+                    android:gravity="center_vertical"
+                    android:text="@string/price_label"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/etTittle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:background="@drawable/bg_et_border"
+                    android:fontFamily="@font/cairo_light"
+                    android:inputType="textCapWords|text"
+                    android:maxLines="1"
+                    android:maxLength="20"
+                    android:paddingBottom="@dimen/_2dp"
+                    android:paddingEnd="@dimen/_15dp"
+                    android:paddingStart="@dimen/_15dp"
+                    android:paddingTop="@dimen/_2dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_marginTop="@dimen/_15dp">
+                    <TextView
+                        android:id="@+id/tvType"
+                        android:layout_width="@dimen/_250dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_et_border"
+                        android:fontFamily="@font/cairo_light"
+                        android:inputType="textCapWords|text"
+                        android:maxLines="1"
+                        android:gravity="center_vertical|start"
+                        android:text="@string/radio_button"
+                        android:paddingBottom="@dimen/_2dp"
+                        android:paddingEnd="@dimen/_15dp"
+                        android:paddingStart="@dimen/_15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:paddingTop="@dimen/_2dp"
+                        android:drawableEnd="@drawable/icon_dropdown"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sp" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/etPrice"
+                    android:layout_width="@dimen/_250dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:background="@drawable/bg_et_border"
+                    android:fontFamily="@font/cairo_light"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/_15dp"
+                    android:paddingBottom="@dimen/_2dp"
+                    android:paddingEnd="@dimen/_15dp"
+                    android:paddingStart="@dimen/_15dp"
+                    android:paddingTop="@dimen/_2dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70dp"
+            android:layout_marginTop="@dimen/_50dp">
+
+            <FrameLayout
+                android:id="@+id/flSave"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:background="@drawable/bg_circle_red"
+                android:elevation="@dimen/_3dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="@dimen/_30dp"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_save" />
+            </FrameLayout>
+        </android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/existing_extras"
+            android:layout_marginStart="@dimen/_50dp"
+            android:textColor="@color/colorBlack"
+            android:visibility="gone"
+            android:textSize="@dimen/_18sp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:id="@+id/tvExistingExtras"
+            android:fontFamily="@font/cairo_semibold"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvExtras"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_50dp"
+            android:layout_marginEnd="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_10dp"
+            />
+    </LinearLayout>
+    </ScrollView>
+</layout>

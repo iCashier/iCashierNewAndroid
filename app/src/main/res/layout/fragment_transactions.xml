@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/clParentLayout">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_tab_grey">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/transactions"
+                        android:drawableStart="@drawable/img_transaction_selector"
+                        android:paddingStart="@dimen/_10dp"
+                        android:drawablePadding="@dimen/_10dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_tab_selector"
+                        android:textSize="@dimen/_16sp"
+                        android:textColor="@drawable/text_selector"
+                        android:layout_gravity="center"
+                        android:paddingEnd="@dimen/_10dp"
+                        android:id="@+id/tabDinein"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_40dp"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/_20dp"
+                            android:drawableStart="@drawable/search"
+                            android:fontFamily="@font/cairo_semibold"
+                            android:gravity="center_vertical"
+                            android:text="@string/search"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                        <EditText
+                            android:id="@+id/etSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30dp"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_light"
+                            android:inputType="textCapWords|text"
+                            android:maxLines="1"
+                            android:layout_marginStart="@dimen/_20dp"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40dp"
+                            android:layout_marginTop="@dimen/_20dp"
+                            android:background="@drawable/bg_header_existing_item"
+                            android:orientation="horizontal">
+
+
+                                <TextView
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/date_label"
+                                    />
+
+
+
+
+                                <TextView
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/receipt"
+                                    />
+
+
+                                <TextView
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/amount_sr"
+                                    />
+
+
+                                <TextView
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/method"
+                                    />
+
+
+
+
+                                <TextView
+                                    android:layout_width="@dimen/_0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:layout_marginStart="@dimen/_5dp"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="@dimen/_16sp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:text="@string/refund"
+                                    />
+
+
+
+
+                        </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:id="@+id/rvTransactions">
+
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:progressTint="@color/orange"
+                android:indeterminateTint="@color/orange"
+                />
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

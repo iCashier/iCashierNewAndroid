@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/clParentLayout">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container"
+                android:orientation="horizontal"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40dp"
+                android:layout_marginStart="@dimen/_65dp"
+                android:layout_marginTop="@dimen/_15dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_tab_grey">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/new_item"
+                    android:drawableStart="@drawable/newitem_tab_selector"
+                    android:paddingStart="@dimen/_10dp"
+                    android:drawablePadding="@dimen/_10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_tab_selector"
+                    android:textSize="@dimen/_16sp"
+                    android:textColor="@drawable/text_selector"
+                    android:layout_gravity="center"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:id="@+id/tabNewItem"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/existing_items"
+                    android:drawableStart="@drawable/items_tab_selector"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:paddingStart="@dimen/_15dp"
+                    android:drawablePadding="@dimen/_10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_tab_selector"
+                    android:textSize="@dimen/_16sp"
+                    android:textColor="@drawable/text_selector"
+                    android:layout_gravity="center"
+                    android:paddingEnd="@dimen/_15dp"
+                    android:id="@+id/tabExistingItems"
+                    />
+
+            </LinearLayout>
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

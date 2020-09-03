@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_frame">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10dp"
+        android:text="Transaction"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_18sp"
+        android:fontFamily="@font/cairo_semibold"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/div1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:layout_below="@id/title"
+        android:background="@color/color_grey" />
+
+    <ScrollView
+        android:id="@+id/webview_sroll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300dp"
+        android:layout_below="@+id/div1"
+        android:fillViewport="true"
+        android:visibility="visible">
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/webview_sroll"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:padding="@dimen/_15dp"
+        android:textColor="@color/color_22" />
+
+    <View
+        android:id="@+id/div2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:layout_below="@id/error_text"
+        android:background="@color/color_grey" />
+
+    <RelativeLayout
+        android:id="@+id/ok_button"
+        android:layout_width="@dimen/_100dp"
+        android:layout_height="@dimen/_35dp"
+        android:layout_below="@+id/div2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@drawable/bg_yellow_btn">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Done"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_10dp"
+    android:orientation="horizontal"
+    android:layout_marginEnd="@dimen/_10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_30dp"
+        android:layout_weight="0.95">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30dp"
+            android:drawablePadding="@dimen/_10dp"
+            android:drawableStart="@drawable/size"
+            android:fontFamily="@font/cairo_semibold"
+            android:gravity="center_vertical"
+            android:text="@string/size_label"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3.5">
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="@dimen/_0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/_30dp"
+            android:drawableEnd="@drawable/icon_dropdown"
+            android:background="@drawable/bg_field_grey"
+            android:orientation="horizontal"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp"
+            android:textAlignment="viewStart"
+            android:gravity="center_vertical|start"
+            android:paddingEnd="@dimen/_15dp"
+            android:paddingStart="@dimen/_15dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30dp"
+            android:drawablePadding="@dimen/_10dp"
+            android:drawableStart="@drawable/cash_small"
+            android:fontFamily="@font/cairo_semibold"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:gravity="center_vertical"
+            android:text="@string/price_label"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp" />
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="@dimen/_0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/_30dp"
+            android:background="@drawable/bg_field_grey"
+            android:orientation="horizontal"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_16sp"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/_15dp"
+            android:inputType="numberDecimal"
+            android:paddingStart="@dimen/_15dp"
+            android:imeOptions="actionDone"
+            android:layout_marginEnd="@dimen/_10dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_plus_2"
+            android:id="@+id/imgAdd"
+            android:layout_gravity="center_vertical"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_cross_red"
+            android:id="@+id/imgDelete"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+</layout>

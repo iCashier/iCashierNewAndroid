@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35dp"
+        android:layout_marginBottom="@dimen/_5dp"
+        android:paddingStart="@dimen/_20dp"
+        android:paddingEnd="@dimen/_20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/bg_secondary_category"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <FrameLayout
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:padding="@dimen/_2dp"
+                    android:background="@drawable/bg_turkish_green_circle">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/def_user"
+                        android:id="@+id/imgItem"
+                        />
+                </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="Item name"
+                    android:id="@+id/tvItemName"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="Item name"
+                    android:id="@+id/tvItemPrice"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/llSize"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center|start"
+                    android:textAlignment="viewStart"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="L"
+                    android:id="@+id/tvItemSize"
+                    android:drawablePadding="@dimen/_15dp"
+                    android:drawableEnd="@drawable/icon_dropdown"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text="5"
+                    android:id="@+id/tvQuantity"
+                    />
+            </LinearLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="@dimen/_30dp"
+                    android:id="@+id/cbItem"
+                    android:clickable="false"
+                    android:buttonTint="@color/orange"
+                    />
+            </android.support.constraint.ConstraintLayout>
+
+
+
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

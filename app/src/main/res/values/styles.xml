@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/textColor</item>
+    </style>
+
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/zoom_in</item>
+        <item name="android:windowExitAnimation">@anim/zoom_out</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowAnimationStyle">@style/AppTheme.WindowTransition</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <!-- Setting window animation -->
+    <style name="AppTheme.WindowTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="CustomSwitch">
+        <item name="colorPrimary">@color/lightGreen</item>
+        <item name="colorPrimaryDark">@color/lightGreen</item>
+        <item name="colorAccent">@color/lightGreen</item>
+    </style>
+
+</resources>

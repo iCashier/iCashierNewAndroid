@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="#00000000">
+
+    <TextView
+        android:layout_width="wrap_content"
+       android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_16sp"
+        android:text="SR "
+        android:textColor="@color/colorBlack"/>
+
+
+        <TextView
+            android:id="@+id/isb_progress"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sp"
+            android:enabled="false"
+            android:text="0"
+            android:backgroundTint="@color/colorBlack"
+            android:fontFamily="@font/cairo_semibold"
+            android:textColor="@color/colorBlack"/>
+
+</LinearLayout>

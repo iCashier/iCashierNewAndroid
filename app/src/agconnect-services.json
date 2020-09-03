@@ -1,0 +1,12 @@
+{
+	"client":{
+		"cp_id":"2640966000002532270",
+		"product_id":"736430079244593774",
+		"client_id":"423866074123994240",
+		"client_secret":"300C035D261EF8C0CF0EE42681FF5F8215CE5DEE2EC0520425FB17F1DE822B57",
+		"app_id":"102700155",
+		"package_name":"com.icashier.app",
+		"api_key":"CgB6e3x9dzXSJsQ9Tu7QLHO5iMX7PSjyJvV0t2nDvemKOSmb6YpgNJ6wC9kNXJVBsUlNcNWaWYOW8PF1IDTdPWGw"
+	},
+	"configuration_version":"1.0"
+}

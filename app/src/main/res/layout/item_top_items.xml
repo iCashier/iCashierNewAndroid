@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_3dp"
+        android:layout_marginStart="@dimen/_10dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35dp"
+            android:paddingEnd="@dimen/_5dp"
+            android:id="@+id/clParentLayout">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorTabGrey"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:maxLines="1"
+                    android:gravity="center_vertical|start"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/_16sp"
+                    android:textColor="@color/colorBlack"
+                    android:text="Toast"
+                    android:layout_marginStart="@dimen/_45dp"
+                    android:id="@+id/tvItemName"
+                    android:paddingEnd="@dimen/_10dp"
+                    />
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="@dimen/_35dp"
+                android:layout_height="@dimen/_35dp"
+                android:padding="@dimen/_2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/bg_turkish_green_circle">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/def_user"
+                    android:id="@+id/imgItem"
+                    />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingEnd="@dimen/_10dp"
+                android:textSize="@dimen/_16sp"
+                android:textColor="@color/colorBlack"
+                android:text="16"
+                android:id="@+id/tvCount"
+                android:fontFamily="@font/cairo_bold"
+                />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</layout>

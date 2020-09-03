@@ -1,0 +1,86 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35dp"
+        android:layout_marginBottom="@dimen/_20dp">
+
+        <LinearLayout
+            android:id="@+id/llSunday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_lightgray_round"
+                android:fontFamily="@font/cairo_regular"
+                android:gravity="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:id="@+id/tvMorningFrom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_et_border"
+                android:fontFamily="@font/cairo_regular"
+                android:gravity="center"
+                android:text="00:00 AM"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:id="@+id/tvMorningTo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_et_border"
+                android:fontFamily="@font/cairo_regular"
+                android:gravity="center"
+                android:text="00:00 AM"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:id="@+id/tvNightFrom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_et_border"
+                android:fontFamily="@font/cairo_regular"
+                android:gravity="center"
+                android:text="00:00 AM"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:id="@+id/tvNightTo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_et_border"
+                android:fontFamily="@font/cairo_regular"
+                android:gravity="center"
+                android:text="00:00 AM"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_highlight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#50F4B443"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

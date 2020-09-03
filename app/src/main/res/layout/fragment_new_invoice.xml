@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/clParentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_40dp"
+                android:padding="@dimen/_30dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:fontFamily="@font/cairo_semibold"
+                            android:gravity="center_vertical"
+                            android:text="@string/invoice_id"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:paddingStart="@dimen/_30dp"
+                            android:textSize="@dimen/_16sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_weight="4"
+                            android:layout_height="@dimen/_30dp">
+
+                            <FrameLayout
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="@dimen/_30dp"
+                                android:layout_weight="1">
+
+                                <ProgressBar
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:progressTint="@color/orange"
+                                    android:indeterminateTint="@color/orange"
+                                    android:layout_margin="@dimen/_5dp"
+                                    android:id="@+id/progressBar"
+                                    android:visibility="visible"
+                                    />
+                                <TextView
+                                    android:id="@+id/tvInvoiceId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_30dp"
+                                    android:background="@drawable/bg_et_border"
+                                    android:fontFamily="@font/cairo_light"
+                                    android:inputType="textCapWords|text"
+                                    android:drawableEnd="@drawable/icon_dropdown"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:paddingEnd="@dimen/_15dp"
+                                    android:paddingStart="@dimen/_15dp"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_16sp" />
+                            </FrameLayout>
+
+
+                            <TextView
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="@dimen/_30dp"
+                                android:layout_weight="1"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:fontFamily="@font/cairo_semibold"
+                                android:gravity="center_vertical"
+                                android:text="@string/invoice_title"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:paddingStart="@dimen/_30dp"
+                                android:textSize="@dimen/_16sp" />
+
+                            <EditText
+                                android:id="@+id/etInvoiceTitle"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_weight="2"
+                                android:layout_height="@dimen/_30dp"
+                                android:background="@drawable/bg_et_border"
+                                android:fontFamily="@font/cairo_light"
+                                android:inputType="textCapWords|text"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:paddingEnd="@dimen/_15dp"
+                                android:paddingStart="@dimen/_15dp"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_dinein_circle"
+                                android:layout_gravity="center_vertical"
+                                android:paddingTop="@dimen/_3dp"
+                                android:paddingBottom="@dimen/_3dp"
+                                android:paddingStart="@dimen/_3dp"
+                                android:paddingEnd="@dimen/_3dp"
+                                android:src="@drawable/customer"
+                                />
+                            <TextView
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="@dimen/_30dp"
+                                android:layout_weight="1"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:fontFamily="@font/cairo_semibold"
+                                android:gravity="center_vertical"
+                                android:text="@string/customer_name_label"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:paddingStart="@dimen/_5dp"
+                                android:textSize="@dimen/_16sp" />
+                        </LinearLayout>
+
+
+                        <EditText
+                            android:id="@+id/etName"
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="4"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_light"
+                            android:inputType="textCapWords|text"
+                            android:maxLines="1"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:drawableStart="@drawable/email"
+                            android:fontFamily="@font/cairo_semibold"
+                            android:gravity="center_vertical"
+                            android:text="@string/email_address"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_weight="4"
+                            android:layout_height="@dimen/_30dp">
+                            <EditText
+                                android:id="@+id/tvEmail"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="@dimen/_30dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_et_border"
+                                android:fontFamily="@font/cairo_light"
+                                android:inputType="textEmailAddress"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:paddingEnd="@dimen/_15dp"
+                                android:paddingStart="@dimen/_15dp"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="@dimen/_30dp"
+                                android:layout_weight="1"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:fontFamily="@font/cairo_semibold"
+                                android:gravity="center_vertical"
+                                android:text="@string/phone_number"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:paddingStart="@dimen/_30dp"
+                                android:textSize="@dimen/_16sp" />
+
+                            <EditText
+                                android:id="@+id/etPhone"
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_weight="2"
+                                android:layout_height="@dimen/_30dp"
+                                android:background="@drawable/bg_et_border"
+                                android:fontFamily="@font/cairo_light"
+                                android:inputType="phone"
+                                android:gravity="center_vertical"
+                                android:maxLines="1"
+                                android:paddingEnd="@dimen/_15dp"
+                                android:paddingStart="@dimen/_15dp"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="@dimen/_0dp"
+                                android:layout_height="@dimen/_30dp"
+                                android:layout_weight="1"
+                                android:drawablePadding="@dimen/_10dp"
+                                android:fontFamily="@font/cairo_semibold"
+                                android:gravity="center_vertical"
+                                android:text="@string/cc"
+                                android:paddingStart="@dimen/_30dp"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/_16sp" />
+                        </LinearLayout>
+
+
+                        <EditText
+                            android:id="@+id/etCC"
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="4"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_light"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10dp">
+                        <TextView
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:fontFamily="@font/cairo_semibold"
+                            android:gravity="center_vertical"
+                            android:text="@string/items_label"
+                            android:paddingStart="@dimen/_30dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_100dp"
+                            android:background="@drawable/bg_et_border"
+                            android:layout_weight="4">
+
+                            <android.support.v7.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/rvItems"
+                                android:padding="@dimen/_10dp">
+
+                            </android.support.v7.widget.RecyclerView>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_marginTop="@dimen/_10dp">
+                        <TextView
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:fontFamily="@font/cairo_bold"
+                            android:gravity="center_vertical"
+                            android:text="@string/total_label"
+                            android:paddingStart="@dimen/_30dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <TextView
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="4"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:fontFamily="@font/cairo_bold"
+                            android:gravity="center_vertical"
+                            android:id="@+id/tvTotal"
+                            android:textStyle="bold"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:layout_marginBottom="@dimen/_10dp">
+                        <TextView
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_weight="1"
+                            android:drawablePadding="@dimen/_10dp"
+                            android:fontFamily="@font/cairo_semibold"
+                            android:gravity="center_vertical"
+                            android:text="@string/notes"
+                            android:paddingStart="@dimen/_30dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+                        <EditText
+                            android:layout_width="@dimen/_0dp"
+                            android:layout_height="@dimen/_100dp"
+                            android:layout_weight="4"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_light"
+                            android:gravity="top"
+                            android:id="@+id/etNotes"
+                            android:inputType="textMultiLine"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/imgSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5dp"
+            android:src="@drawable/send"
+            android:elevation="@dimen/_3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgSend"
+            android:src="@drawable/print"
+            android:elevation="@dimen/_3dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginBottom="@dimen/_3dp"
+            android:id="@+id/imgPrint"
+            android:visibility="gone"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imgPrint"
+            android:src="@drawable/save"
+            android:elevation="@dimen/_3dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_3dp"
+            android:visibility="gone"
+            android:id="@+id/imgSave"
+            />
+    </android.support.constraint.ConstraintLayout>
+</layout>

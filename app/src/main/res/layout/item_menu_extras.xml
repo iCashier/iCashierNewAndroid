@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:id="@+id/llParentLayout"
+        android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clRb">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/cairo_semibold"
+            android:buttonTint="@color/orange"
+            android:id="@+id/rbExtra"
+            android:clickable="false"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/cairo_semibold"
+            android:textSize="@dimen/_16sp"
+            android:id="@+id/tvPriceRb"
+            />
+    </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/clCb">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="@dimen/_16sp"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/cairo_semibold"
+                android:buttonTint="@color/orange"
+                android:id="@+id/cbName"
+                android:clickable="false"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/cairo_semibold"
+                android:textSize="@dimen/_16sp"
+                android:id="@+id/tvPriceCB"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
+</LinearLayout>
+</layout>

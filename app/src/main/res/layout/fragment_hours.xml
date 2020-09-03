@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/clParentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_15dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:layout_marginStart="@dimen/_65dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:background="@drawable/bg_frame"
+            android:elevation="@dimen/_2dp"
+            android:padding="@dimen/_5dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40dp"
+                    android:padding="@dimen/_30dp">
+
+                    <LinearLayout
+                        android:id="@+id/llHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35dp"
+                        android:layout_marginBottom="@dimen/_20dp"
+                        android:background="@drawable/blue_round"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/calander_white"
+                            android:drawablePadding="@dimen/_5dp"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_20dp"
+                            android:text="@string/day"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_18sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_20dp"
+                            android:text="@string/from"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_18sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_20dp"
+                            android:text="@string/to"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_18sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_20dp"
+                            android:text="@string/from"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_18sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cairo_regular"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_20dp"
+                            android:text="@string/to"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_18sp" />
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_days"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llHeader" />
+
+                </RelativeLayout>
+            </ScrollView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flSave"
+            android:layout_width="@dimen/_70dp"
+            android:layout_height="@dimen/_70dp"
+            android:layout_margin="@dimen/_5dp"
+            android:background="@drawable/bg_circle_red"
+            android:elevation="@dimen/_3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_save" />
+        </FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

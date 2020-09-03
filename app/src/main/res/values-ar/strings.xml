@@ -1,0 +1,613 @@
+<resources>
+    <string name="app_name">iCashier</string>
+    <string name="google_maps_key">AIzaSyCBzbAuqFFpPrbfwntfCwFAzHAQyCDaGqE</string>
+
+
+    <!-- popup strings-->
+    <string name="permission_required">السماح بالوصول</string>
+    <string name="location_permission">يحتاج التطبيق إلى هذا الإذن للوصول إلى موقعك. هل أنت متأكد أنك تريد رفض هذا الإذن؟</string>
+    <string name="camera_permission">يحتاج التطبيق إلى هذا الإذن لالتقاط الصور باستخدام كاميرا الهاتف. هل أنت متأكد أنك تريد رفض هذا الإذن؟</string>
+    <string name="deny">رفض</string>
+    <string name="grant">سماح</string>
+
+
+    <!-- Error Strings -->
+    <string name="error_generic">فيه خطأ</string>
+    <string name="network_error">غير متصل بالإنترنت</string>
+    <string name="location_error">غير قادر على الحصول إلى موقعك.</string>
+
+    <!--Confirmation strings-->
+    <string name="camera">الكاميرا</string>
+    <string name="gallery">الأستوديو</string>
+    <string name="signout_confirmation">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="resend_otp_msg">يرجى إعادة إرسال رمز التفعيل.</string>
+    <string name="invalid_access">قمت بتسجيل الدخول من جهاز آخر.</string>
+
+
+    <!-- validation Strings -->
+    <string name="empty_email_or_username">يرجى إدخال البريد الإلكتروني أو اسم المستخدم.</string>
+    <string name="empty_password">يرجى إدخال كلمة المرور.</string>
+    <string name="empty_email">يرجى إدخال البريد الإلكتروني.</string>
+    <string name="valid_email">يرجى إدخال البريد الإلكتروني الصحيح.</string>
+    <string name="valid_username">الرجاء ادخال اسم مستخدم صحيح.</string>
+    <string name="valid_mobile">الرجاء إدخال رقم جوال صحيح.</string>
+
+    <string name="valid_password">كلمة المرور يجب لا يقل عن 6 أحرف على الأقل.</string>
+    <string name="valid_confirm_pass">كلمة المرور غير متطابقة.</string>
+    <string name="empty_name">يرجى ادخال الاسم.</string>
+    <string name="empty_confrim_password">من فضلك أدخل تأكيد كلمة مرور.</string>
+    <string name="empty_mobile">يرجى إدخال رقم الجوال.</string>
+    <string name="empty_country">يرجى اختيار الدولة.</string>
+    <string name="empty_location">يرجى تحديد الموقع.</string>
+    <string name="valid_otp">يرجى إدخال رمز تفعيل صالح.</string>
+    <string name="empty_account_no">يرجى إدخال رقم الحساب.</string>
+    <string name="empty_document">يرجى اختيار وثيقة.</string>
+    <string name="inavlid_account">يرجى إدخال رقم الحساب.</string>
+    <string name="empty_old_pass">يرجى إدخال كلمة المرور القديمة.</string>
+    <string name="same_old_new_pass">يجب أن تكون كلمة المرور الجديدة مختلفة عن كلمة المرور القديمة.</string>
+
+    <string name="empty_title">يرجى إدخال العنوان.</string>
+    <string name="empty_tagline">يرجى إدخال نص تعريفي.</string>
+    <string name="empty_services">يرجى اختيار الخدمات.</string>
+
+    <string name="empty_logo">يرجى اختيار شعار المطعم.</string>
+    <string name="empty_restaurant_image">يرجى اختيار صورة واحدة على الأقل للمطعم</string>
+
+    <string name="empty_country_name">الرجاء إدخال اسم البلد.</string>
+    <string name="empty_city_name">الرجاء إدخال اسم المدينة.</string>
+    <string name="empty_landmark">الرجاء إدخال معلم للعنوان.</string>
+    <string name="empty_address">الرجاء إدخال عنوانك.</string>
+    <string name="empty_user_name">من فضلك أدخل إسمك.</string>
+
+
+
+
+    <!--Login screen strings-->
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="forgot_password">هل نسيت كلمة المرور؟</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="new_user">مستخدم جديد؟</string>
+    <string name="signup">سجل</string>
+
+    <!--Signup screen strings-->
+    <string name="sign_up_header">سجل</string>
+    <string name="name">اسم</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="mobile">الجوال</string>
+
+    <!--Otp screen strings-->
+    <string name="otp_has_been_sent_to_mobile_no">تم إرسال رمز التفعيل إلى رقم الجوال</string>
+    <string name="didn_t_receive_code">لم تتلقى الرمز؟</string>
+    <string name="resend_now">إرسال رمز جديد</string>
+    <string name="verify">التحقق</string>
+
+    <!--Forgot password screen-->
+    <string name="forgot_pass_header">هل نسيت كلمة المرور</string>
+    <string name="enter_your_registered_email_id">أدخل البريد الإلكتروني الخاص بك</string>
+    <string name="email_id">البريد الإلكتروني</string>
+    <string name="a_password_reset_link_will_be_sent_to_registered_email_address">سيتم إرسال رابط إعادة تعيين كلمة المرور إلى عنوان البريد الإلكتروني المسجل</string>
+    <string name="submit">إرسال</string>
+
+    <!--Complete plans screen-->
+    <string name="complete_plans">أكمل التسجيل</string>
+    <string name="choose_plans">اختر عرض</string>
+    <string name="verified">موثق</string>
+    <string name="free">مجاني</string>
+    <string name="non_verified">غير موثق</string>
+    <string name="services">الخدمات</string>
+    <string name="price">السعر</string>
+    <string name="you_can_generate_unlimited_qr_code">يمكنك إنشاء رمز QR غير محدود</string>
+    <string name="bank_account">حساب بنكي</string>
+    <string name="attach_document">إرفاق المستندات</string>
+    <string name="remove">إزالة</string>
+    <string name="upload">رفع</string>
+
+
+    <!-- home screen-->
+    <string name="merchant_home">صفحة التاجر</string>
+    <string name="cashier">الكاشير</string>
+    <string name="generate_code">إنشاء رمز</string>
+    <string name="items">المنتجات</string>
+    <string name="deals">العروض</string>
+    <string name="categories_meals_extras">الفئات والوجبات والمزايا الإضافية</string>
+    <string name="transactions">المعاملات</string>
+    <string name="invoices">الفواتير</string>
+    <string name="settings">إعدادات</string>
+    <string name="reports">تقارير</string>
+    <string name="help">مساعدة</string>
+    <string name="online">عبر الانترنت</string>
+    <string name="offline">غير متصل على الانترنت</string>
+
+
+
+    <!--Merchant home fragment screen-->
+    <string name="title">عنوان</string>
+    <string name="tagline">نص تعريفي</string>
+    <string name="network">الواي فاي</string>
+    <string name="location">اللوكيشن</string>
+    <string name="take_naway">سفري</string>
+    <string name="dine_in">محلي</string>
+    <string name="delivery">توصيل</string>
+    <string name="large_screen">شاشة\n عرض</string>
+    <string name="party">حفلات</string>
+    <string name="vegan">نباتي</string>
+    <string name="add_deal">أضف عرض</string>
+    <string name="promote_item">إعلان</string>
+    <string name="search">بحث...</string>
+    <string name="smoking_area">منطقة تدخين</string>
+    <string name="live_tv">بث مباشر</string>
+    <string name="reservation">حجوزات</string>
+    <string name="parking">مواقف سيارات</string>
+    <string name="catering">حفلات</string>
+    <string name="pickup">إستلام طلبات</string>
+
+    <!--Reset password screen-->
+    <string name="reset_password">إعادة ضبط كلمة المرور</string>
+    <string name="enter_old_password">أدخل كلمة المرور القديمة</string>
+    <string name="enter_new_password">أدخل كلمة مرور جديدة</string>
+    <string name="confrim_new_password">تأكيد كلمة المرور الجديدة</string>
+
+    <!--setting screen-->
+    <string name="change_language">تغيير اللغة</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="push_notification">رسائل التنبيهات</string>
+    <string name="valid_new_password">يجب أن تتكون كلمة المرور الجديدة من 6 أحرف على الأقل</string>
+
+
+    <!--Change lang dialog-->
+    <string name="arabic">عربى</string>
+    <string name="english">English</string>
+
+
+    <!--Add category fragment-->
+    <string name="empty_icon">يرجى تحديد رمز القسم.</string>
+    <string name="empty_primary_category">يرجى تحديد الفئة الأساسية.</string>
+    <string name="delete_category_alert">هل أنت متأكد من أنك تريد حذف هذه الفئة الأساسية؟</string>
+    <string name="delete_subcat_alert">هل أنت متأكد من أنك تريد حذف هذه الفئة الثانوية؟</string>
+
+    <!--Add extras fragment-->
+    <string name="radio_button">زر الراديو</string>
+    <string name="check_box">خانة الاختيار</string>
+    <string name="empty_price">يرجى إدخال السعر.</string>
+    <string name="delete_extra_alert">هل أنت متأكد من أنك تريد حذف هذا الإضافة؟</string>
+    <string name="existing_extras">إضافات موجودة</string>
+
+
+    <!--Add meal fragment-->
+    <string name="empty_items">يرجى تحديد منتج على الأقل لإضافته.</string>
+
+
+    <!--Add table dialog-->
+    <string name="empty_table_name">يرجى إدخال اسم الطاولة.</string>
+    <string name="delete_table_alert">Are you sure you want to delete this table?</string>
+
+    <!--Add meal fragment-->
+    <string name="empty_meal_items">الرجاء إضافة منتج إلى الوجبة.</string>
+    <string name="delete_meal_alert">هل أنت متأكد من أنك تريد حذف هذه الوجبة؟</string>
+
+    <!--Dine code fragment-->
+    <string name="empty_payment_mode">يرجى تحديد طريقة الدفع.</string>
+    <string name="empty_table">يرجى إدخال اسم الطاولة.</string>
+
+    <!--Takeout code fragment-->
+    <string name="empty_item">يرجى إدخال الاسم.</string>
+
+    <!--Items code fragment-->
+    <string name="empty_delivery_mode">يرجى تحديد طريقة التسليم.</string>
+
+    <!--All codes fragment-->
+    <string name="delete_qr_alert">هل أنت متأكد أنك تريد حذف رمز QR ؟</string>
+
+    <!--Add category fragment-->
+    <string name="categories">الاقسام</string>
+    <string name="meals">وجبات</string>
+    <string name="extras">إضافات</string>
+
+    <!--Category fragment-->
+    <string name="tittle">الأسم:</string>
+    <string name="category_level">مستوى القسم:</string>
+    <string name="primary">أساسي</string>
+    <string name="secondary">ثانوي</string>
+    <string name="primary_category">القسم الأساسية:</string>
+    <string name="existing_categories">أقسام موجودة</string>
+
+    <!--Add meal fragment-->
+    <string name="price_label">السعر:</string>
+    <string name="items_label">المنتجات</string>
+    <string name="existing_meals">الوجبات الموجودة</string>
+    <string name="type">نوع:</string>
+
+    <!--Item fragment-->
+    <string name="new_item">منتج جديد</string>
+    <string name="existing_items">المنتجات الموجودة</string>
+
+    <!--Existing item fragment-->
+    <string name="item">منتج</string>
+    <string name="size">الحجم</string>
+    <string name="quantity_label">الكمية</string>
+
+    <!--Add item fragment-->
+    <string name="empty_quantity">يرجى إدخال الكمية.</string>
+    <string name="empty_item_image">يرجى تحديد صورة للمنتج.</string>
+    <string name="empty_secondary_category">يرجى اختيار قسم ثانوي.</string>
+    <string name="delete_item_alert">هل أنت متأكد أنك تريد حذف هذا المنتج؟</string>
+    <string name="size_already_selected">هذا الحجم موجود.</string>
+    <string name="name_label">الاسم:</string>
+    <string name="quantity">الكمية:</string>
+    <string name="secondary_category">القسم الثانوي:</string>
+    <string name="sale">تخفيض السعر:</string>
+    <string name="extras_label">إضافات:</string>
+    <string name="about">حول المنتج:</string>
+
+    <!--Generate code fragment-->
+    <string name="dine_in_tab">محلي</string>
+    <string name="take_out_tab">سفري</string>
+    <string name="codes">الرموز</string>
+
+    <!--Dinein code fragment-->
+    <string name="select_payment">اختر الدفع:</string>
+    <string name="credit_card">بطاقة الائتمان</string>
+    <string name="cash">كاش</string>
+    <string name="paypal">باي بال</string>
+    <string name="select_table">أدخل اسم الطاولة:</string>
+
+    <!--Takeout code fragment-->
+    <string name="select_name">أدخل الاسم:</string>
+    <string name="select_item">اختر المنتج:</string>
+    <string name="select_delivery">اختر التوصيل:</string>
+    <string name="swift_delivery">توصيل مرسول</string>
+    <string name="insta_delivery">توصيل المتجر</string>
+
+    <!--All codes fragment-->
+    <string name="order">طلب</string>
+    <string name="update">تحديث</string>
+    <string name="select_items">اختيار المنتجات</string>
+    <string name="add_today_special">أضف عرض اليوم</string>
+    <string name="no_extras_found">لا توجد إضافات.</string>
+    <string name="no_items_found">لم يتم العثور على المنتجات.</string>
+    <string name="no_codes_found">لم يتم العثور على رموز.</string>
+    <string name="notify_customers_when_order_is_ready_for_pickup">أبلغ العملاء عندما يكون الطلب جاهزًا للاستلام:</string>
+    <string name="delivery_duration">مدة التوصيل:</string>
+    <string name="cash_on_delivery">الدفع عن الاستلام:</string>
+    <string name="delivery_services">خدمات توصيل:</string>
+    <string name="auto_cashier">الخدمة الذاتية:</string>
+    <string name="exp_date">تاريخ الإنتهاء:</string>
+    <string name="title_colon">الأسم:</string>
+
+    <string name="yesterday">في الامس</string>
+    <string name="days_ago">أيام مضت</string>
+    <string name="just_now">في هذة اللحظة</string>
+    <string name="seconds_ago">منذ ثوانى</string>
+    <string name="minutes_ago">دقائق مضت</string>
+    <string name="hours_ago">منذ ساعات</string>
+    <string name="empty_value">يرجى إدخال القيمة</string>
+    <string name="error_percent">يجب أن تكون النسبة المئوية بين 1 و 99</string>
+    <string name="password_label">كلمه المرور</string>
+    <string name="passcode_label">كلمه المرور</string>
+    <string name="cashier_list_label">موظفين الكاشير</string>
+    <string name="day">يوم</string>
+    <string name="from">من</string>
+    <string name="to">إلى</string>
+    <string name="sunday">الأحد</string>
+    <string name="monday">الإثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الأربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="saturday">السبت</string>
+    <string name="error_cashier_image">يرجى اختيار صورة الكاشير</string>
+    <string name="existing_coupons">القسائم الحالية:</string>
+    <string name="old_password_label">كلمة المرور القديمة:</string>
+    <string name="new_password_label">كلمة السر الجديدة:</string>
+    <string name="error_timings">يرجى تحديد توقيت صالح</string>
+    <string name="add_address_edit_address">إضافة العنوان / تحرير العنوان:</string>
+    <string name="address">عنوان:</string>
+    <string name="landmark">معلم معروف:</string>
+    <string name="city">مدينة:</string>
+    <string name="country">الدولة:</string>
+    <string name="phone_number">رقم الهاتف:</string>
+    <string name="cashier_login">تسجيل دخول الكاشير</string>
+    <string name="select_casheir">اختر كاشير</string>
+    <string name="joined">انضم:</string>
+    <string name="logout">الخروج</string>
+    <string name="done">تم</string>
+    <string name="value_sr">القيمة (ريال):</string>
+    <string name="value_percent">القيمة (%):</string>
+    <string name="value">القيمة:</string>
+    <string name="order_details">تفاصيل الطلب</string>
+    <string name="cashier_name">اسم الكاشير:</string>
+    <string name="delivery_type">نوع التوصيل :</string>
+    <string name="payment_type">نوع الدفع :</string>
+    <string name="address_label">عنوان :</string>
+    <string name="username">اسم المستخدم :</string>
+    <string name="customer_name">اسم الزبون:</string>
+    <string name="order_id">رقم الطلب :</string>
+    <string name="date">تاريخ :</string>
+    <string name="price_sr">السعر (SR)</string>
+    <string name="count">الكمية</string>
+    <string name="subtotal">المجموع الفرعي </string>
+    <string name="delivery_charges">رسوم التوصيل</string>
+    <string name="tax">القيمة المضافة </string>
+    <string name="total">المجموع</string>
+    <string name="order_placed_succcessfully">تم الطلب بنجاح!</string>
+    <string name="taxes">القيمة المضافة</string>
+    <string name="general">عام</string>
+    <string name="coupons">كوبونات</string>
+    <string name="hours">ساعات</string>
+    <string name="checkout">الدفع</string>
+
+    <string name="swift_delivery_label">توصي\nمرسول</string>
+    <string name="insta_delivery_label">توصيل\nالمتجر</string>
+    <string name="payment_received">تم إستلام المبلغ</string>
+    <string name="new_invoice">فاتورة جديدة</string>
+    <string name="all_invoices">جميع الفواتير</string>
+    <string name="invoice_id">رقم الفاتورة:</string>
+    <string name="invoice_title">اسم الفاتورة:</string>
+    <string name="customer_name_label">اسم الزبون:</string>
+    <string name="email_address">عنوان بريد الكتروني:</string>
+    <string name="cc">CC:</string>
+    <string name="total_label">المجموع:</string>
+    <string name="notes">ملاحظات:</string>
+    <string name="online_orders">الطلبات عبر الإنترنت</string>
+    <string name="order_list">لائحة الطلبات</string>
+    <string name="no_items_meals_added_to_cart">لم تتم إضافة أي عناصر / وجبات إلى سلة التسوق.</string>
+    <string name="no_orders_found">لم يتم العثور على أية طلبات.</string>
+    <string name="add">إضافة</string>
+    <string name="list_of_taxes">قائمة الضرائب:</string>
+    <string name="date_label">تاريخ</string>
+    <string name="receipt">إيصال#</string>
+    <string name="amount_sr">مبلغ (SR)</string>
+    <string name="method">طريقة</string>
+    <string name="refund">إعادة المبلغ</string>
+    <string name="sold_out">لا يوجد</string>
+    <string name="view_items">عرض المنتجات</string>
+    <string name="in_stock">متوفر</string>
+    <string name="receipt_heading">إيصال</string>
+    <string name="switching_tab">هل أنت متأكد من أنك تريد تبديل علامة التبويب؟ سيؤدي تبديل علامة التبويب إلى مسح الجلسة.</string>
+    <string name="still_want_to_proceed">هل ما زلت تريد المتابعة؟</string>
+    <string name="delete_invoice_alert">هل أنت متأكد من أنك تريد حذف هذه الفاتورة؟</string>
+    <string name="delete_casheir_alert">هل أنت متأكد من أنك تريد حذف هذا الكاشير؟</string>
+    <string name="delete_coupon_alert">هل أنت متأكد من أنك تريد حذف هذه القسيمة؟</string>
+    <string name="delete_tax_alert">هل أنت متأكد من أنك تريد حذف هذه الضريبة؟</string>
+    <string name="change_refund_status_alert">هل أنت متأكد من أنك تريد تغيير الحالة؟</string>
+    <string name="pending">قيد الانتظار</string>
+    <string name="proccesing">معالجة</string>
+    <string name="delivered">تم التوصيل</string>
+
+
+
+    <string name="empty_phone">يرجى إدخال رقم الهاتف.</string>
+    <string name="empty_customer">يرجى إدخال اسم العميل.</string>
+    <string name="empty_invoice_title">يرجى إدخال عنوان الفاتورة.</string>
+    <string name="empty_invoice_id">يرجى تحديد رقم الفاتورة.</string>
+
+    <string name="calories">سعرات حراريه:</string>
+    <string name="empty_calories">يرجى إدخال السعرات الحرارية.</string>
+    <string name="new_deal">عرض جديد</string>
+    <string name="existing_deals">العروض الحالية</string>
+    <string name="deal_title">أسم العرض:</string>
+    <string name="price_sr_label">السعر (ريال):</string>
+    <string name="date_range">مدة العرض</string>
+    <string name="date_range_label">مدة العرض:</string>
+    <string name="select_day">أيام العرض:</string>
+    <string name="hour_range">ساعات العرض:</string>
+    <string name="more_than_sr">أكثر من (ريال):</string>
+    <string name="with_item_s">مع هذه المنتجات:</string>
+    <string name="_24_hours">24 ساعة</string>
+    <string name="_12_00_a_m">12:00 ص</string>
+
+    <string name="hours_label">ساعات</string>
+    <string name="qty_exceeds">تم تجاوز الكمية المحددة.</string>
+    <string name="remove_item_from_cart_alert">هل تريد بالتأكيد إزالة هذا العنصر من السلة؟</string>
+    <string name="leave_empty_for_unlimited"><font size="12">اتركه فارغًا لمدة غير محدودة</font></string>
+    <string name="unlimited">غير محدود</string>
+    <string name="view_deal">العرض</string>
+    <string name="select">اختر</string>
+    <string name="meal">وجبة</string>
+    <string name="deal">عرض</string>
+    <string name="select_deal">اختر العرض</string>
+    <string name="select_meal">اختر وجبة:</string>
+    <string name="cash_drawer">درج النقود</string>
+    <string name="sales">مبيعات</string>
+    <string name="empty_meal_image">يرجى اختيار صورة للوجبة.</string>
+    <string name="invalid_qty">الرجاء إدخال كمية صالحة أو تركها فارغة في حال ان الكمية غير محدودة.</string>
+    <string name="total_price_of_selected_items">السعر الإجمالي للعناصر المحددة: ريال</string>
+    <string name="meal_sold_out_error">لا يمكن المتابعة. هذه الوجبة قد بيعت.</string>
+    <string name="deal_sold_out_error">لا يمكن المتابعة. لقد بيعت هذه السلعة</string>
+    <string name="empty_days">يرجى اختيار الأيام.</string>
+    <string name="empty_date_range">يرجى تحديد نطاق التاريخ.</string>
+    <string name="select_one_item">يرجى اختيار عنصر واحد على الأقل.</string>
+    <string name="empty_with_items">يرجى اختيار العناصر لتقديم عروض مع.</string>
+    <string name="empty_more_price">يرجى اختيار أكثر من السعر.</string>
+    <string name="delete_deal_alert">هل أنت متأكد أنك تريد حذف هذا العرض؟</string>
+    <string name="invalid_website_add">الرجاء إدخال عنوان موقع إلكتروني صحيح.</string>
+    <string name="invalid_whatapp">الرجاء إدخال رقم واتساب صالح.</string>
+    <string name="invalid_facebook_add">الرجاء إدخال عنوان الفيسبوك صالح.</string>
+    <string name="invalid_insta_add">الرجاء إدخال عنوان الانستقرام صالح.</string>
+    <string name="invalid_twitter_add">الرجاء إدخال عنوان تويتر صحيح.</string>
+    <string name="su">أ</string>
+    <string name="mo">إث</string>
+    <string name="tu">ث</string>
+    <string name="we">إر</string>
+    <string name="th">خ</string>
+    <string name="fr">ج</string>
+    <string name="sa">س</string>
+    <string name="am">ص</string>
+    <string name="pm">م</string>
+    <string name="size_label">حجم:</string>
+    <string name="count_label">عدد:</string>
+    <string name="close">مغلق</string>
+    <string name="clear_list">حذف</string>
+    <string name="coupon">كوبون</string>
+    <string name="select_coupon">اختر الكوبون:</string>
+    <string name="mins">دقائق</string>
+    <string name="min">دقيقة</string>
+    <string name="_hours">ساعات</string>
+    <string name="hour">ساعة</string>
+    <string name="clear_cart_alert">هل أنت متأكد أنك تريد مسح السلة؟</string>
+    <string name="today_special">أضف عرض اليوم</string>
+    <string name="icon">أيقونة:</string>
+    <string name="select_time">اختر الوقت</string>
+    <string name="one_qr_per_service">يمكنك إنشاء رمز QR واحد فقط لكل خدمة</string>
+    <string name="empty_deal_image">يرجى اختيار صورة للعرض.</string>
+    <string name="order_status">حالة الطلب:</string>
+
+    <string name="edit_custom">تصحيح</string>
+    <string name="no_items_meals_deals_found">لم يتم العثور على عناصر / وجبات / عروض.</string>
+    <string name="change">تغيير</string>
+    <string name="amount_must_be_greater">يجب أن يكون المبلغ أكبر من المبلغ الإجمالي.</string>
+    <string name="waiter_call">دعوة نادل</string>
+    <string name="custom_amount">المبلغ المخصص</string>
+    <string name="vs_yesterday">مقابل أمس</string>
+    <string name="vs_last_7_days">مقابل آخر 7 أيام</string>
+    <string name="vs_last_1_month">مقابل الشهر الماضي </string>
+    <string name="vs_last_3_months">مقابل 3 أشهر الماضية</string>
+    <string name="vs_last">مقابل الماضي</string>
+    <string name="days">أيام</string>
+    <string name="card">بطاقة</string>
+    <string name="no_outlet_found_at_your_location">لا يوجد منفذ في موقعك</string>
+    <string name="create_outlet">إنشاء منفذ</string>
+    <string name="view_existing">عرض موجود</string>
+    <string name="select_outlet">اختر فرع</string>
+    <string name="purchase_subscription">شراء الاشتراك</string>
+    <string name="status">الحالة</string>
+    <string name="your_code">الرمز</string>
+    <string name="top_items">أفضل المنتجات </string>
+    <string name="payments">المدفوعات</string>
+    <string name="cards">البطاقات </string>
+    <string name="sales_report">تقرير المبيعات</string>
+    <string name="visitors">الزوار </string>
+    <string name="insight">معلومات إضافية</string>
+    <string name="orders">الطلبات</string>
+    <string name="like">إعجاب</string>
+    <string name="today">اليوم</string>
+    <string name="week">الإسبوع</string>
+    <string name="month">الشهر</string>
+    <string name="months_3">٣ أشهر</string>
+    <string name="_5_mins"> 5 دقائق</string>
+    <string name="_2_hours">2 ساعات</string>
+    <string name="on">تشغيل</string>
+    <string name="off">OFF</string>
+    <string name="default_size">افتراضي</string>
+    <string name="select_printer">حدد طابعة</string>
+
+    <!---Printer error messages-->
+    <string name="handlingmsg_warn_receipt_near_end">لفة الورق انتهت تقريبا.</string>
+    <string name="handlingmsg_warn_battery_near_end">مستوى البطارية للطابعة منخفض.</string>
+    <string name="handlingmsg_err_no_response">يرجى التحقق من اتصال الطابعة والجهاز المحمول. فقد الاتصال.</string>
+    <string name="handlingmsg_err_cover_open">يرجى إغلاق غلاف لفة الورق.</string>
+    <string name="handlingmsg_err_receipt_end">يرجى مراجعة ورقة اللفة.</string>
+    <string name="handlingmsg_err_paper_feed">يرجى تحرير مفتاح تغذية الورق.</string>
+    <string name="handlingmsg_err_autocutter">يرجى إزالة الورق المحشور وإغلاق غطاء لفة الورق. قم بإزالة أي ورق محشور أو مواد غريبة في الطابعة ، ثم قم بإيقاف تشغيل الطابعة وتشغيل الطابعة مرة أخرى.</string>
+    <string name="handlingmsg_err_need_recover">ثم ، إذا لم تسترد الطابعة من الخطأ ، فيرجى تدوير مفتاح الطاقة.</string>
+    <string name="handlingmsg_err_unrecover">يرجى دورة مفتاح الطاقة للطابعة. إذا حدثت نفس الأخطاء حتى عند تدوير الطاقة ، فقد توقفت الطابعة عن العمل.</string>
+    <string name="handlingmsg_err_overheat">يرجى الانتظار حتى يتم إيقاف تشغيل مؤشر خطأ الطابعة.</string>
+    <string name="handlingmsg_err_head">رأس الطابعة ساخن.</string>
+    <string name="handlingmsg_err_motor">محرك موتور IC للطابعة ساخن.</string>
+    <string name="handlingmsg_err_battery">بطارية الطابعة ساخنة.</string>
+    <string name="handlingmsg_err_wrong_paper">يرجى ضبط ورقة اللفة صحيحاً.</string>
+    <string name="handlingmsg_err_battery_real_end">يرجى توصيل محول التيار الكهربائي أو تغيير البطارية. بطارية الطابعة فارغة تقريبا.</string>
+    <string name="handlingmsg_err_offline">الطابعة غير متصلة.</string>
+    <string name="err_con_printer">خطأ في توصيل الطابعة</string>
+    <string name="err_timeout_printer">مهلة الطابعة أنتهت</string>
+    <string name="err_memory_printer">خطأ في ذاكرة الطابعة</string>
+    <string name="err_invalid_cmd_printer">أمر خاطئ</string>
+    <string name="err_processing_printer">خطأ في المعالجة</string>
+    <string name="err_not_found_printer">غير معثور عليه</string>
+    <string name="err_in_use_printer">قيد الإستخدام</string>
+    <string name="err_invalid_type_printer">خطأ نوع غير صالح</string>
+    <string name="err_disconnected_printer">تم قطع اتصال الطابعة</string>
+    <string name="err_already_open_printer">مفتوح بالفعل</string>
+    <string name="err_already_used_printer">مستخدم من قبل</string>
+    <string name="err_box_count_printer">مربع العد انتهى</string>
+    <string name="err_box_client_printer">مربع العميل انتهى</string>
+    <string name="err_unsupproted_printer">غير معتمد</string>
+    <string name="reciept_print_success">تم طباعة الفاتورة بنجاح</string>
+    <string name="status_printing">جاري الطباعة</string>
+    <string name="err_auto_recover_printer">خطأ الاسترداد التلقائي</string>
+    <string name="err_cover_open_printer">خطأ الغطاء مفتوح</string>
+    <string name="err_cutter_printer">خطأ القاطع</string>
+    <string name="err_mechanical_printer">خطأ الميكانيكية</string>
+    <string name="err_empty_printer">خطأ فارغ</string>
+    <string name="err_unrecoverable_printer">خطأ غير قابل للاسترداد</string>
+    <string name="err_not_found">خطأ غير موجود</string>
+    <string name="err_port">خطأ المنفذ</string>
+    <string name="err_timeout">خطأ أنتهاء الوقت</string>
+    <string name="err_job">خطأ وظيفة غير موجود</string>
+    <string name="err_spooler">خطأ التخزين المؤقت</string>
+    <string name="err_battery_low">خطأ البطارية منخفضة</string>
+    <string name="err_many_reqs">خطأ الكثير من الطلبات</string>
+    <string name="err_large_request">خطأ طلب كبير جدا</string>
+    <string name="err_cancelled">تم الغاء الخطأ</string>
+    <string name="err_no_data">خطأ لا توجد بيانات</string>
+    <string name="err_invalid_length">خطأ طول غير صالح</string>
+    <string name="err_magnetic_data">خطأ لا توجد بيانات مغناطيسية</string>
+    <string name="err_reading_data">خطأ في قراءة البيانات</string>
+    <string name="err_noise_detected">تم اكتشاف خطأ في الضوضاء</string>
+    <string name="err_paper_jam">خطأ انحشار الورق </string>
+    <string name="err_paper_pulled">خطأ ورقة انسحبت</string>
+    <string name="err_paper_type">الخطأ نوع الورقة </string>
+    <string name="err_device_busy">خطأ الجهاز مشغول</string>
+    <string name="err_printer_connection">خطأ في اتصال الطابعة</string>
+    <string name="err_diconnecting">خطأ في قطع الاتصال</string>
+    <string name="err_outofmemory">خطأ عدم وجود ذاكرة كافية</string>
+    <string name="err_procession_req">خطأ في معالجة الطلب</string>
+    <string name="otp_verification">التحقق من رمز التفعيل</string>
+    <string name="empty_deal_qr">يرجى اختيار عرض لإنشاء الكود.</string>
+    <string name="empty_item_qr">يرجى اختيار المنتج لإنشاء الكود.</string>
+    <string name="empty_meal_qr">يرجى اختيار وجبة لإنشاء الكود.</string>
+    <string name="empty_coupon_qr">يرجى اختيار قسيمة لإنشاء الكود.</string>
+    <string name="allergies">الحساسية:</string>
+
+    <!-- Error strings for swipe card-->
+    <string name="pin_pad_busy">دبوس الباد مشغول</string>
+    <string name="err_701">نفذ الوقت</string>
+    <string name="err_702">إلغاء المستخدم بعد بدء الطلب</string>
+    <string name="err_703">تجاوز الحد الإتماني </string>
+    <string name="err_704">بطاقة السكيما غير مدعومة</string>
+    <string name="err_705">الدخول اليدوي غير مسموح به</string>
+    <string name="err_706">بطاقة غير مدعومة</string>
+    <string name="err_707">لا يوجد appl نشط</string>
+    <string name="err_708">بطاقة محظورة</string>
+    <string name="err_709">أدخل قارئ البطاقة الذكية</string>
+    <string name="err_710">بطاقة غير صالحة</string>
+    <string name="err_711">الإدخال اليدوي إلغاء</string>
+    <string name="err_712">دبوس إنهاء</string>
+    <string name="err_713">تمت إزالة البطاقة</string>
+    <string name="err_714">خطأ في البيانات</string>
+    <string name="err_715">خطأ في قراءة البطاقة</string>
+    <string name="err_716">CTLS خطأ</string>
+    <string name="err_719">فشل دي ساف</string>
+    <string name="err_724">البطاقة غير مدخلة بشكل صحيح</string>
+    <string name="err_723">الجهاز غير مسجل</string>
+    <string name="err_725">مبلغ غير صحيح</string>
+    <string name="err_191">تحتاج إلى إظهار الفاتورة</string>
+    <string name="err_717">لم يحدث أي عمل لأداء المصالحة</string>
+    <string name="pay">دفع:</string>
+    <string name="pays">دفع</string>
+    <string name="start_transaction">بدء المعاملة</string>
+    <string name="terminal_yet_to_be_verified">لم يتم التحقق من الجهاز بعد </string>
+    <string name="please_connect_to_terminal">Pيرجى الاتصال بالجهاز</string>
+    <string name="error">خطأ</string>
+    <string name="teminal_ver_failed">فشل التحقق من الجهاز</string>
+    <string name="invalid_amount">مبلغ غير صحيح</string>
+    <string name="receipt_label">إيصال:</string>
+    <string name="payment_req">طلب الدفع</string>
+    <string name="ready">جاهز</string>
+    <string name="device_register_one">تسجيل الطابعة اليدوي</string>
+    <string name="device_register_two">التسجيل التلقائي للطابعة</string>
+    <string name="autoPrint">هذا طباعة</string>
+    <string name="payment_process_message">لا تضغط زر العودة وصفحة التحديث حتى تكتمل العملية</string>
+    <string name="payment_unsecess">لم يتم استلام المدفوعات</string>
+    <string name="bill_nos">مشروع قانون لا:</string>
+    <string name="ref_nos">مصدر رقم:</string>
+    <string name="merchant_is">التاجر هو:</string>
+    <string name="payment_method">PAYMENT METHOD</string>
+
+
+</resources>

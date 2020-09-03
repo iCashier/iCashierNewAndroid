@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.icashier.app">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:name=".helper.BaseApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:appComponentFactory="whateverString"
+        tools:replace="android:appComponentFactory,android:icon,android:roundIcon">
+        <!-- android:requestLegacyExternalStorage="true"-->
+
+        <!-- **********provider for image cropper******* -->
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- ******************* FCM NOTIFICATION********************** -->
+        <activity
+            android:name=".countryPicker.CountryPickerActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activity.HomeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <activity
+            android:name=".activity.SignupActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".activity.CompletePlansActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.OtpActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.ForgotPasswordActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/BaseAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".dialog.AddAdressDialog"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".dialog.CreateOutletDialog"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.darsh.multipleimageselect.activities.AlbumSelectActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/MultipleImageSelectTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.paytabs.paytabs_sdk.payment.ui.activities.PayTabActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name="com.paytabs.paytabs_sdk.payment.ui.activities.SecurePaymentActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            tools:replace="android:screenOrientation" />
+
+        <activity
+            android:name=".activity.newplaces.NewPlaceActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            tools:replace="android:screenOrientation" />
+
+        <activity android:name=".dialog.PaymentCardDialog"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@android:style/Theme.Dialog"
+            tools:replace="android:screenOrientation"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <provider
+            android:name=".helper.InternalStorageContentProvider"
+            android:authorities="com.icashier.app"
+            android:exported="true" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths_icashier" />
+        </provider>
+        <service android:name=".pushnotificaton.MyFirebaseMessegingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".pushnotificaton.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+       <!-- <receiver android:name=".autoservices.ResponseBroadcastReceiver"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.icashier.app.autoservices.ResponseBroadcastReceiver"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".autoservices.ToastBroadcastReceiver"
+            android:process=":remote">
+        </receiver>
+        <service android:name=".autoservices.BackgroundService"
+            android:exported="false" ></service>-->
+
+    </application>
+
+
+</manifest>
