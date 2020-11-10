@@ -9,7 +9,8 @@ public class ServerConstants {
     //production url
     public static String BASE_URl_SOCKET = ":6262/";
 //    public static String BASE_URL = "https://www.icashierapp.com" + BASE_URl_SOCKET;
-    public static String BASE_URL = "https://devnode.devtechnosys.tech:17335/";
+//    public static String BASE_URL = "https://devnode.devtechnosys.tech:17335/";
+    public static String BASE_URL = "http://18.196.177.79:6262/";
     // public static String BASE_URL = "http://52.57.61.227:6262/";
 
     //development url
