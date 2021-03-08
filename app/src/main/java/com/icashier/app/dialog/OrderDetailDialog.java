@@ -87,6 +87,7 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
     private List<OrderListResponse.ResultBean.ItemsBean> itemList = new ArrayList<>();
     private SupportMapFragment mapFragment;
     OrderItemsAdapter adapter;
+    String afdsaf;
 
     public OrderDetailDialog(HomeActivity context, OrderListResponse.ResultBean orderData) {
         super(context);
