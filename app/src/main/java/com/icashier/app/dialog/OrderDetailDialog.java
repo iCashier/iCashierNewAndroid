@@ -19,6 +19,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.epson.epos2.Epos2CallbackCode;
 import com.epson.epos2.Epos2Exception;
 import com.epson.epos2.printer.Printer;
@@ -48,10 +53,15 @@ import com.icashier.app.helper.RestClient;
 import com.icashier.app.helper.SharedPrefManager;
 import com.icashier.app.helper.Utilities;
 import com.icashier.app.listener.CashierSignoutListener;
+import com.icashier.app.model.AllCategoriesResponse;
 import com.icashier.app.model.GenericResponse;
 import com.icashier.app.model.GenreatePDFModer;
 import com.icashier.app.model.OrderListResponse;
 import com.icashier.app.printer.ShowMsg;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
@@ -76,7 +86,7 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
     private OrderListResponse.ResultBean orderData;
     private List<OrderListResponse.ResultBean.ItemsBean> itemList = new ArrayList<>();
     private SupportMapFragment mapFragment;
-
+    OrderItemsAdapter adapter;
 
     public OrderDetailDialog(HomeActivity context, OrderListResponse.ResultBean orderData) {
         super(context);
@@ -99,7 +109,7 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
         // binding = DataBindingUtil.setContentView(context, R.layout.dialog_order_detail);
         binding = DataBindingUtil.inflate(inflater, R.layout.dialog_order_detail, null, false);
         setContentView(binding.getRoot());
-
+        getCategoryAll();
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         getWindow().setBackgroundDrawableResource(R.color.transparent);
         Window window = getWindow();
@@ -220,13 +230,20 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
         binding.tvCashierName.setText(orderData.getCashierName());
 
         if (orderData.getCashierName() != null & !orderData.getCashierName().equals("")) {
-            binding.llCashierName.setVisibility(View.VISIBLE);
+//            binding.llCashierName.setVisibility(View.VISIBLE);
         } else {
-            binding.llCashierName.setVisibility(View.GONE);
+//            binding.llCashierName.setVisibility(View.GONE);
         }
         if (!orderData.getCustomerName().equals("")) {
-            binding.llCustomerName.setVisibility(View.VISIBLE);
+//            binding.llCustomerName.setVisibility(View.VISIBLE);
             binding.tvCustomerName.setText(orderData.getCustomerName());
+        }
+        if (orderData.getMobileNo()!=null && !orderData.getMobileNo().isEmpty()){
+            binding.llMobileNo.setVisibility(View.VISIBLE);
+            binding.tvMobileNO.setText(orderData.getMobileNo());
+        }else{
+            binding.tvMobileNO.setText("N/A");
+            binding.llMobileNo.setVisibility(View.GONE);
         }
         if (orderData.getPaymentStatus() == 0 && !orderData.getStatus().equalsIgnoreCase(AppConstant.STATUS_PENDING)) {
             binding.btnPayment.setVisibility(View.VISIBLE);
@@ -254,11 +271,11 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
             setAddress();
         } else if (orderData.getDelivery().equals(AppConstant.CASHIER)) {
             binding.tvDelivery.setText(context.getString(R.string.dine_in_tab));
-            binding.llStatus.setVisibility(View.GONE);
+//            binding.llStatus.setVisibility(View.GONE);
             binding.delCharges.setVisibility(View.GONE);
         }
 
-        if (orderData.getPayment().equalsIgnoreCase(AppConstant.CASH)) {
+        /*if (orderData.getPayment().equalsIgnoreCase(AppConstant.CASH)) {
             binding.tvPayment.setText(context.getString(R.string.cash));
         } else if (orderData.getPayment().equalsIgnoreCase(AppConstant.CREDIT_CARD)) {
             binding.tvPayment.setText(context.getString(R.string.credit_card));
@@ -266,16 +283,21 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
         } else {
             binding.tvPayment.setText(context.getString(R.string.online));
             binding.btnPayment.setVisibility(View.GONE);
-        }
+        }*/
+        binding.tvPayment.setText(orderData.getPayment());
 
         if (!orderData.getTableName().equalsIgnoreCase("null") && !orderData.getTableName().equals("")) {
             // binding.tvSeqNo.setText("#" + orderData.getSequence_no() + " - " + orderData.getTableName());
             // binding.tvOrderId.setText("#" + orderData.getId() );
             binding.tvOrderId.setText("#" + orderData.getSequence_no() + " - " + orderData.getTableName());
-
+            binding.tvQrCode.setVisibility(View.VISIBLE);
+            binding.tvQrCode.setText(orderData.getTableName());
+            binding.llQrCode.setVisibility(View.VISIBLE);
         } else {
             // binding.tvSeqNo.setText("#" + orderData.getSequence_no() );
             //binding.tvOrderId.setText("#" + orderData.getId());
+            binding.tvQrCode.setVisibility(View.GONE);
+            binding.llQrCode.setVisibility(View.GONE);
 
             binding.tvOrderId.setText("#" + orderData.getSequence_no());
         }
@@ -307,7 +329,8 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        OrderItemsAdapter adapter = new OrderItemsAdapter(context, itemList);
+
+        adapter = new OrderItemsAdapter(context, itemList);
         binding.rvItems.setLayoutManager(new LinearLayoutManager(context));
         binding.rvItems.setAdapter(adapter);
         if (orderData.getStatus().equalsIgnoreCase(AppConstant.STATUS_PENDING)) {
@@ -820,30 +843,32 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
         Utilities.setLanguage(context);
 
         StringBuilder textData = new StringBuilder();
-        Bitmap logoData = BitmapFactory.decodeResource(context.getResources(), R.drawable.icon_logo_login);
+        Bitmap logoData = BitmapFactory.decodeResource(context.getResources(), R.drawable.imenunewprint);
         boolean isArabic = Utilities.isArabic();
         int count = 0;
         int spaces = 0;
         String space = "";
         Bitmap logo = null;
         String name = "";
+        String nameEng = "";
         String price = "";
         int textAlignment = isArabic ? Printer.ALIGN_RIGHT : Printer.ALIGN_LEFT;
-        try {
+       /* try {
             logo = BitmapFactory.decodeStream(new URL(orderData.getLogo()).openConnection().getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         try {
 
-            mPrinter.addTextAlign(Printer.ALIGN_CENTER);
+//            mPrinter.addTextAlign(Printer.ALIGN_CENTER);
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
 
 
-            mPrinter.addImage(logo, 0, 0,
-                    logo.getWidth(),
-                    logo.getHeight(),
+            mPrinter.addImage(logoData, 0, 0,
+                    logoData.getWidth(),
+                    logoData.getHeight(),
                     Printer.COLOR_1,
                     Printer.MODE_MONO,
                     Printer.HALFTONE_DITHER,
@@ -854,52 +879,80 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
             }*/
             mPrinter.addFeedLine(1);
 
+            mPrinter.addText(binding.tvDate.getText().toString());
+            mPrinter.addFeedLine(1);
+            mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
+//            String tempVarOrderId = !isArabic ? context.getString(R.string.order_id).trim() + "#" + orderData.getSequence_no() :
+//                    "#" + orderData.getSequence_no() + reverseString(context.getString(R.string.order_id).trim());
+            String tempVarOrderId = context.getString(R.string.order_id).trim() + "#" + orderData.getSequence_no();
+            mPrinter.addText(tempVarOrderId.trim());
+            mPrinter.addFeedLine(2);
+
             mPrinter.addTextSmooth(Printer.TRUE);
 
             mPrinter.addTextSize(2, 2);
             mPrinter.addText(orderData.getTitle().trim());
             mPrinter.addTextSize(1, 1);
-            mPrinter.addFeedLine(1);
+            mPrinter.addFeedLine(2);
             String tempAddress = orderData.getLocation().trim();//printerLocationPrintArabicBase(orderData.getLocation().trim());
             Log.e("TAG", "formatPrintData: " + tempAddress);
             mPrinter.addText(tempAddress);
-            mPrinter.addTextAlign(textAlignment);
+            mPrinter.addFeedLine(2);
+            mPrinter.addText(ServerConstants.vatUser +" : الرقم الضريبي ");
+
+//            mPrinter.addTextAlign(textAlignment);
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
             mPrinter.addTextSmooth(Printer.PARAM_DEFAULT);
-            mPrinter.addFeedLine(1);
-
-
-            mPrinter.addText(binding.tvDate.getText().toString());
-            mPrinter.addFeedLine(1);
-            mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
-            String tempVarOrderId = !isArabic ? context.getString(R.string.order_id).trim() + "#" + orderData.getSequence_no() :
-                    "#" + orderData.getSequence_no() + reverseString(context.getString(R.string.order_id).trim());
-            mPrinter.addText(tempVarOrderId.trim());
-
             mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
             mPrinter.addFeedLine(2);
+            mPrinter.addText(orderData.getDelivery()+ " : نوع التوصيل ");
+            mPrinter.addFeedLine(1);
+            mPrinter.addText(orderData.getCustomerName()+ " : اسم الزبون ");
+            mPrinter.addFeedLine(1);
 
+            mPrinter.addText(orderData.getPayment()+ " : طريقة الدفع ");
+            mPrinter.addFeedLine(1);
+
+            mPrinter.addText(orderData.getAmtTaken()+ " : المبلغ المستلم ");
+            mPrinter.addFeedLine(1);
+            mPrinter.addText(orderData.getChangeGiven()+ " : الباقي ");
+            mPrinter.addFeedLine(2);
             textData.append("------------------------------------------------");
             mPrinter.addText(textData.toString().trim());
             textData.delete(0, textData.length());
             mPrinter.addFeedLine(1);
 
-
             if (orderData.getItems().size() > 0) {
-                mPrinter.addTextAlign(textAlignment);
+//                mPrinter.addTextAlign(textAlignment);
+                mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
-                String tempVarItem = !isArabic ? context.getString(R.string.items) : reverseString(context.getString(R.string.items));
+//                String tempVarItem = !isArabic ? context.getString(R.string.items) : reverseString(context.getString(R.string.items));
+                String tempVarItem = "المنتجات";
                 mPrinter.addText(tempVarItem/*context.getString(R.string.items)*/.trim());
                 mPrinter.addFeedLine(1);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
+                mPrinter.addFeedLine(1);
                 for (int i = 0; i < orderData.getItems().size(); i++) {
                     count++;
 
                     if (isArabic) {
-                        name = orderData.getItems().get(i).getQtyAddedToCart() + "x " + orderData.getItems().get(i).getName() + " (" + count;
+                        name = orderData.getItems().get(i).getQtyAddedToCart() + "x " + orderData.getItems().get(i).getName() + " (" + count+ " )";
                     } else {
                         name = count + ") " + orderData.getItems().get(i).getName() + " x" + orderData.getItems().get(i).getQtyAddedToCart();
                     }
-                    price = "SR " + orderData.getItems().get(i).getPriceForItem();
+
+                    if (orderData.getItems().get(i).getTitleAr()!=null && !orderData.getItems().get(i).getTitleAr().isEmpty()){
+                        name = orderData.getItems().get(i).getQtyAddedToCart() + "x " + orderData.getItems().get(i).getTitleAr() + " ." + count;
+                    }
+                    if (orderData.getItems().get(i).getTitle()!=null && !orderData.getItems().get(i).getTitle().isEmpty()){
+                        nameEng = " ( "+orderData.getItems().get(i).getTitle()+" ) " ;
+                    }
+
+                    if (orderData.getItems().get(i).getPriceForItem().contains("SR")){
+                        price =  orderData.getItems().get(i).getPriceForItem();
+                    }else{
+                        price = "SR " + orderData.getItems().get(i).getPriceForItem();
+                    }
                     if (name.length() > 25) {
                         name = name.substring(0, 24) + "..";
                     }
@@ -910,7 +963,10 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                     }
 
 
-                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
+                    mPrinter.addFeedLine(1);
+                    mPrinter.addText(nameEng);
                     mPrinter.addFeedLine(1);
                 }
 
@@ -918,9 +974,9 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
 
             if (orderData.getMeal().size() > 0) {
                 mPrinter.addFeedLine(1);
-                mPrinter.addTextAlign(textAlignment);
+//                mPrinter.addTextAlign(textAlignment);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
-                mPrinter.addText(context.getString(R.string.meals).trim());
+                mPrinter.addText("وجبات");
                 mPrinter.addFeedLine(1);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
 
@@ -930,6 +986,10 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                         name = orderData.getMeal().get(i).getQtyAddedToCart() + "x " + orderData.getMeal().get(i).getTitle() + " (" + count;
                     } else {
                         name = count + ") " + orderData.getMeal().get(i).getTitle() + " x" + orderData.getMeal().get(i).getQtyAddedToCart();
+                    }
+
+                    if (orderData.getMeal().get(i).getTitleAr()!=null && !orderData.getMeal().get(i).getTitleAr().isEmpty()){
+                        name = orderData.getMeal().get(i).getQtyAddedToCart() + "x " + orderData.getMeal().get(i).getTitleAr() + " ." + count;
                     }
                     price = "SR " + orderData.getMeal().get(i).getPriceForItem();
                     if (name.length() > 25) {
@@ -941,7 +1001,8 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                         space += " ";
                     }
 
-                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
                     mPrinter.addFeedLine(1);
                 }
 
@@ -949,9 +1010,9 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
 
             if (orderData.getDeals().size() > 0) {
                 mPrinter.addFeedLine(1);
-                mPrinter.addTextAlign(textAlignment);
+//                mPrinter.addTextAlign(textAlignment);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
-                mPrinter.addText(context.getString(R.string.deals).trim());
+                mPrinter.addText("العروض");
                 mPrinter.addFeedLine(1);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
 
@@ -962,6 +1023,10 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                     } else {
                         name = count + ") " + orderData.getDeals().get(i).getTitle() + " x" + orderData.getDeals().get(i).getQtyAddedToCart();
                     }
+
+                    if (orderData.getDeals().get(i).getTitleAr()!=null && !orderData.getDeals().get(i).getTitleAr().isEmpty()){
+                        name = orderData.getDeals().get(i).getQtyAddedToCart() + "x " + orderData.getDeals().get(i).getTitleAr() + " ." + count;
+                    }
                     price = "SR " + orderData.getDeals().get(i).getPriceForItem();
                     if (name.length() > 25) {
                         name = name.substring(0, 24) + "..";
@@ -971,7 +1036,8 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                     for (int j = 0; j < spaces; j++) {
                         space += " ";
                     }
-                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
                     mPrinter.addFeedLine(1);
                 }
 
@@ -983,8 +1049,12 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
             mPrinter.addFeedLine(1);
 
 
-            name = !isArabic ? context.getString(R.string.subtotal) : reverseString(context.getString(R.string.subtotal));
+//            name = !isArabic ? context.getString(R.string.subtotal) : reverseString(context.getString(R.string.subtotal));
+            name = " الجموع الفرعي ";
+
+            Log.e("tvSubTotal",String.valueOf(name.length()));
             price = binding.tvSubTotal.getText().toString();
+
             spaces = 48 - name.length() - price.length();
             space = "";
             for (int i = 0; i < spaces; i++) {
@@ -992,32 +1062,68 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
             }
 
             mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
-            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
             mPrinter.addFeedLine(1);
 
 
-            name = !isArabic ? context.getString(R.string.tax) : reverseString(context.getString(R.string.tax));
+//            name = !isArabic ? context.getString(R.string.tax) : reverseString(context.getString(R.string.tax));
+            name ="القيمة المضافة ";
             price = binding.tvTax.getText().toString();
             spaces = 48 - name.length() - price.length();
             space = "";
             for (int i = 0; i < spaces; i++) {
                 space += " ";
             }
+            Log.e("tvTax",String.valueOf(name.length()));
 
-            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+            name ="قيمة التوصيل ";
+            price = binding.tvDeliveryCharges.getText().toString();
+            spaces = 48 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+            Log.e("tvDeliveryCharges",String.valueOf(name.length()));
+
+
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+            name ="مبلغ اضافي ";
+            price = binding.tvCustomAmount.getText().toString();
+            spaces = 48 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+            Log.e("tvCustomAmount",String.valueOf(name.length()));
+
+
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
             mPrinter.addFeedLine(1);
 
 
             if (orderData.getCustomAmount() > 0) {
 
-                name = !isArabic ? context.getString(R.string.custom_amount) : reverseString(context.getString(R.string.custom_amount));
+//                name = !isArabic ? context.getString(R.string.custom_amount) : reverseString(context.getString(R.string.custom_amount));
+                name ="مبلغ اضافي  ";
                 price = binding.tvCustomAmount.getText().toString();
                 spaces = 48 - name.length() - price.length();
                 space = "";
                 for (int i = 0; i < spaces; i++) {
                     space += " ";
                 }
-                mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//                mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                mPrinter.addText(price + space + name);
                 mPrinter.addFeedLine(1);
 
             }
@@ -1028,7 +1134,7 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
             mPrinter.addTextSize(2, 2);
             mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
 
-            name = !isArabic ? context.getString(R.string.total) : reverseString(context.getString(R.string.total));
+            name = "مجموع";
             price = binding.tvTotal.getText().toString();
             spaces = 24 - name.length() - price.length();
             space = "";
@@ -1036,7 +1142,8 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                 space += " ";
             }
 
-            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
             mPrinter.addFeedLine(1);
 
 
@@ -1048,7 +1155,8 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
             if (orderData.getChangeGiven() != null && !orderData.getChangeGiven().equals("NULL") && !orderData.getChangeGiven().equals("")) {
                 mPrinter.addFeedLine(1);
                 if (Float.parseFloat(orderData.getChangeGiven()) > 0) {
-                    name = !isArabic ? context.getString(R.string.change).trim() : reverseString(context.getString(R.string.change)).trim();
+//                    name = !isArabic ? context.getString(R.string.change).trim() : reverseString(context.getString(R.string.change)).trim();
+                    name = "تغيير";
                     price = binding.tvChange.getText().toString();
                     spaces = 48 - name.length() - price.length();
                     space = "";
@@ -1056,7 +1164,8 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
                         space += " ";
                     }
 
-                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
                 }
             }
             mPrinter.addFeedLine(2);
@@ -1104,5 +1213,102 @@ public class OrderDetailDialog extends Dialog implements ReceiveListener {
         return sb.reverse().toString();
     }
 
+
+    private void getCategoryAll(){
+        AndroidNetworking.initialize(context);
+        AndroidNetworking.post(ServerConstants.BASE_URL + ServerConstants.CATEGORY_ALL)
+                .addHeaders("token",SharedPrefManager.getInstance(context).getString(AppConstant.ACCESS_TOKEN, ""))
+                .addHeaders("type",SharedPrefManager.getInstance(context).getString(AppConstant.USER_TYPE, AppConstant.TYPE_MERCHANT))
+                .setPriority(Priority.HIGH)
+                .build()
+                .getAsObject(AllCategoriesResponse.class,new ParsedRequestListener<AllCategoriesResponse>() {
+                    @Override
+                    public void onResponse(AllCategoriesResponse response) {
+                        try {
+                            AllCategoriesResponse allCategoriesResponse = response;
+                            for (int i = 0; i < allCategoriesResponse.getResult().size(); i++){
+                                if (checkCategory(itemList,allCategoriesResponse.getResult().get(i).getId())){
+                                    OrderItemsAdapter.categoryName=allCategoriesResponse.getResult().get(i).getName();
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+
+                        } catch (Exception e) {
+                        }
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                        // handle error
+                        Toast.makeText(context, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+
+//        HashMap<String,String> headers=new HashMap<>();
+//        headers.put("token",SharedPrefManager.getInstance(context).getString(AppConstant.ACCESS_TOKEN,""));
+//        headers.put("type",SharedPrefManager.getInstance(context).getString(AppConstant.USER_TYPE,AppConstant.TYPE_MERCHANT));
+//
+//        apiRequest = new RestClient.ApiRequest(context);
+//        apiRequest.setUrl(ServerConstants.BASE_URL + ServerConstants.CATEGORY_ALL)
+//                .setMethod(RestClient.ApiRequest.METHOD_POST)
+//                .setHeader("token", SharedPrefManager.getInstance(context).getString(AppConstant.ACCESS_TOKEN, ""))
+//                .setHeader("type", SharedPrefManager.getInstance(context).getString(AppConstant.USER_TYPE, AppConstant.TYPE_MERCHANT))
+//                .setResponseListener(new RestClient.ResponseListener() {
+//                    @Override
+//                    public void onResponse(String tag, String response) {
+////                        binding.progressBar.setVisibility(View.GONE);
+////                        if (Utilities.isValidJson(response)) {
+////                            if (Utilities.isValidJson(response)) {
+//                                GenericResponse genericResponse = new Gson().fromJson(response, GenericResponse.class);
+////                                if (genericResponse != null) {
+////                                    if (genericResponse.getCode() == 200) {
+////
+////                                    } else if (genericResponse.getCode() == 301) {
+////                                        Utilities.signoutCashier(context, new CashierSignoutListener() {
+////                                            @Override
+////                                            public void onCashierExpire() {
+////                                                   /* AlertUtil.showAlertWindow(context, context.getString(R.string.still_want_to_proceed), new OnClickListener() {
+////                                                        @Override
+////                                                        public void onClick(DialogInterface dialog, int which) {
+////                                                            callChangeStatusApi(status);
+////                                                        }
+////                                                    });*/
+////                                            }
+////                                        });
+////                                    }
+////
+////                                } else {
+//////                                    binding.progressBar.setVisibility(View.VISIBLE);
+////                                    AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
+////                                }
+////                            }
+////                        }
+//                    }
+//                })
+//                .setErrorListener(new RestClient.ErrorListener() {
+//                    @Override
+//                    public void onError(String tag, String errorMsg) {
+////                        binding.progressBar.setVisibility(View.VISIBLE);
+//                        AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
+//                    }
+//                })
+//                .execute();
+    }
+
+    private boolean checkCategory(List<OrderListResponse.ResultBean.ItemsBean> itemList, String toCheckValue) {
+        boolean test = false;
+        for (OrderListResponse.ResultBean.ItemsBean element : itemList) {
+            String idnew=String.valueOf(element.getCategory());
+            if (idnew.equalsIgnoreCase(toCheckValue)) {
+                test = true;
+                break;
+            }
+        }
+        return test;
+    }
 }
 

@@ -37,7 +37,7 @@
                     android:drawableStart="@drawable/icon_title"
                     android:fontFamily="@font/cairo_semibold"
                     android:gravity="center_vertical"
-                    android:text="@string/tittle"
+                    android:text="@string/tittle_arabic"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_16sp" />
             </LinearLayout>

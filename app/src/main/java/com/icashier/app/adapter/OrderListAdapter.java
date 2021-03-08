@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -39,6 +40,7 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
     List<OrderListResponse.ResultBean> list;
     LayoutInflater inflater;
     OkClickListener listener;
+    private long mLastClickTime = 0;
 
     public OrderListAdapter(Context context, List<OrderListResponse.ResultBean> list,OkClickListener listener){
         this.context=context;
@@ -180,6 +182,12 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.View
 
 
             binding.getRoot().setOnClickListener(V->{
+
+            /*    if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();*/
+
                 String s=list.get(position).toString();
                 Log.e("PrintDialog Response",s);
                 OrderDetailDialog orderDetailDialog= new OrderDetailDialog((HomeActivity) context,list.get(position));

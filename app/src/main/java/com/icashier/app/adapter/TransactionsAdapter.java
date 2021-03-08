@@ -120,7 +120,7 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
             float totalPrice=(float)(Math.round(Double.parseDouble(list.get(position).getTotal()) * 100.0) / 100.0);
 
             binding.tvPrice.setText(""+totalPrice);
-            if(list.get(position).getPayment().equalsIgnoreCase(AppConstant.CASH)){
+            /*if(list.get(position).getPayment().equalsIgnoreCase(AppConstant.CASH)){
                 binding.tvPayment.setText(context.getString(R.string.cash));
                 binding.tvPayment.setSelected(true);
             }else if(list.get(position).getPayment().equalsIgnoreCase(AppConstant.CREDIT_CARD)){
@@ -129,7 +129,9 @@ public class TransactionsAdapter extends RecyclerView.Adapter<TransactionsAdapte
             }else {
                 binding.tvPayment.setText(context.getString(R.string.online));
                 binding.tvPayment.setSelected(false);
-            }
+            }*/
+
+            binding.tvPayment.setText(list.get(position).getPayment());
 
             if(list.get(position).isExpanded()){
                 binding.llItems.setVisibility(View.VISIBLE);

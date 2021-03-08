@@ -99,27 +99,32 @@ public class NewInvoiceFragment extends Fragment {
                         public void onResponse(String tag, String response) {
                             binding.progressBar.setVisibility(View.GONE);
                             if (Utilities.isValidJson(response)) {
-                                OrderListResponse orderListResponse= new Gson().fromJson(response, OrderListResponse.class);
-                                if (orderListResponse != null) {
-                                    if(orderListResponse.getCode()==200){
-                                        if(orderListResponse.getResult().size()>0){
-                                            invoiceList.addAll(orderListResponse.getResult());
-                                            for(int i=0;i<invoiceList.size();i++){
-                                                list.add("#"+invoiceList.get(i).getSequence_no());
+                                try{
+                                    OrderListResponse orderListResponse= new Gson().fromJson(response, OrderListResponse.class);
+                                    if (orderListResponse != null) {
+                                        if(orderListResponse.getCode()==200){
+                                            if(orderListResponse.getResult().size()>0){
+                                                invoiceList.addAll(orderListResponse.getResult());
+                                                for(int i=0;i<invoiceList.size();i++){
+                                                    list.add("#"+invoiceList.get(i).getSequence_no());
+                                                }
                                             }
+                                        }else if(orderListResponse.getCode()==301)
+                                        {
+                                            Utilities.signoutCashier(context, new CashierSignoutListener() {
+                                                @Override
+                                                public void onCashierExpire() {
+                                                    callGetOrdersApi();
+                                                }
+                                            });
                                         }
-                                    }else if(orderListResponse.getCode()==301)
-                                    {
-                                        Utilities.signoutCashier(context, new CashierSignoutListener() {
-                                            @Override
-                                            public void onCashierExpire() {
-                                                callGetOrdersApi();
-                                            }
-                                        });
+                                    } else {
+                                        AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
                                     }
-                                } else {
-                                    AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
+                                }catch(Exception e){
+
                                 }
+
                             }
                         }
                     })

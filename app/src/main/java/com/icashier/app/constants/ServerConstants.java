@@ -105,6 +105,9 @@ public class ServerConstants {
     public static String STC_USER_NAME = "AZOUewcBCrLl70ks";
     public static String STC_USER_PASS = "9QWsRHwF0ypLefiO";
     public static String GENERATE_NEW_PDF = "api/icuser/getPdf";
+    public static String CATEGORY_ALL = "api/icuser/order/categorylist";
+    public static String vatUser="0";
+
 
     // DEMO_STC rest of related content on imenu code
     // public static String STC_PAYINQUARY="https://b2btest.stcpay.com.sa/B2B.MerchantWebApi/Merchant/v3/PaymentInquiry";

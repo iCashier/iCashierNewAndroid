@@ -76,7 +76,16 @@ public class MerchantDetailResponse implements Serializable{
         private String facebook;
         private String twitter;
         private String instagram;
+        private String vat;
         private List<ImageBean> image;
+
+        public String getVat() {
+            return vat;
+        }
+
+        public void setVat(String vat) {
+            this.vat = vat;
+        }
 
         public String getTitle() {
             return title;

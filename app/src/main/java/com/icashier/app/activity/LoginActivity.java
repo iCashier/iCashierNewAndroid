@@ -149,10 +149,18 @@ public class LoginActivity extends LocationActivity {
                                             //Clears previous activities
                                             Utilities.clearAllgoToActivity(context, HomeActivity.class);
                                         }else{
-                                            SharedPrefManager.getInstance(context).saveString(AppConstant.ACCESS_TOKEN, loginResponse.getResult().getToken());
+                                            /*SharedPrefManager.getInstance(context).saveString(AppConstant.ACCESS_TOKEN, loginResponse.getResult().getToken());
                                             Intent intent=new Intent(context,CompletePlansActivity.class);
                                             intent.putExtra(AppConstant.SIGNIN_RESPONSE,loginResponse.getResult());
-                                            startActivity(intent);
+                                            startActivity(intent);*/
+                                            SharedPrefManager.getInstance(context).saveString(AppConstant.USER_INFO, new Gson().toJson(loginResponse.getResult()));
+                                            SharedPrefManager.getInstance(context).saveString(AppConstant.KEY_LOGIN_USER_ID, loginResponse.getResult().getUid());
+                                            SharedPrefManager.getInstance(context).saveString(AppConstant.ACCESS_TOKEN, loginResponse.getResult().getToken());
+                                            SharedPrefManager.getInstance(context).saveString(AppConstant.USER_TYPE, AppConstant.TYPE_MERCHANT);
+                                            SharedPrefManager.getInstance(context).saveInt(AppConstant.IS_PARENT,loginResponse.getResult().getIsParent());
+
+                                            //Clears previous activities
+                                            Utilities.clearAllgoToActivity(context, HomeActivity.class);
 
                                         }
                                     } else if(loginResponse.getCode()==202){
@@ -164,16 +172,32 @@ public class LoginActivity extends LocationActivity {
                                         intent.putExtra(AppConstant.PHONE_NO,loginResponse.getResult().getMobile());
                                         startActivity(intent);
                                     }else if(loginResponse.getCode()==203){
-                                            Intent intent = new Intent(context, CreateOutletDialog.class);
+                                           /* Intent intent = new Intent(context, CreateOutletDialog.class);
                                             intent.putExtra(AppConstant.LATITUDE, lat);
                                             intent.putExtra(AppConstant.LONGITUDE, lng);
                                             intent.putExtra(AppConstant.OUTLET,new Gson().toJson(loginResponse.getList()));
                                             intent.putExtra(AppConstant.EMAIL, binding.etEmail.getText().toString());
                                             intent.putExtra(AppConstant.PASSWORD, binding.etPassword.getText().toString());
-                                            startActivity(intent);
+                                            startActivity(intent);*/
 
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.USER_INFO, new Gson().toJson(loginResponse.getResult()));
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.KEY_LOGIN_USER_ID, loginResponse.getResult().getUid());
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.ACCESS_TOKEN, loginResponse.getResult().getToken());
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.USER_TYPE, AppConstant.TYPE_MERCHANT);
+                                        SharedPrefManager.getInstance(context).saveInt(AppConstant.IS_PARENT,loginResponse.getResult().getIsParent());
+
+                                        //Clears previous activities
+                                        Utilities.clearAllgoToActivity(context, HomeActivity.class);
                                     }else if(loginResponse.getCode()==200){
-                                        new SelectOutletDialog(context,loginResponse.getList()).show();
+//                                        new SelectOutletDialog(context,loginResponse.getList()).show();
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.USER_INFO, new Gson().toJson(loginResponse.getResult()));
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.KEY_LOGIN_USER_ID, loginResponse.getResult().getUid());
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.ACCESS_TOKEN, loginResponse.getResult().getToken());
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.USER_TYPE, AppConstant.TYPE_MERCHANT);
+                                        SharedPrefManager.getInstance(context).saveInt(AppConstant.IS_PARENT,loginResponse.getResult().getIsParent());
+
+                                        //Clears previous activities
+                                        Utilities.clearAllgoToActivity(context, HomeActivity.class);
                                     }
                                     else {
 

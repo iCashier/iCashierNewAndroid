@@ -12,12 +12,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.icashier.app.R;
 import com.icashier.app.constants.AppConstant;
 import com.icashier.app.databinding.ItemMenuBinding;
 import com.icashier.app.dialog.MealItemsDialog;
 import com.icashier.app.dialog.ViewDealDialog;
+import com.icashier.app.helper.SharedPrefManager;
 import com.icashier.app.helper.Utilities;
 import com.icashier.app.listener.MenuListener;
 import com.icashier.app.model.MenuResponse;
@@ -164,7 +166,16 @@ public class MenuItemsAdapter extends RecyclerView.Adapter<MenuItemsAdapter.View
                     new MealItemsDialog(context, Arrays.asList(new MenuResponse.MerchantBean.CategoriesBean.SubCategoriesBean.ItemsBean[] {list.get(position)})).show();
                 });
             }
-            binding.tvItemName.setText(list.get(position).getName());
+            String appLang= SharedPrefManager.getInstance(context).getString(AppConstant.APP_LANGUAGE,"en");
+            if (appLang.equals("ar")){
+                if (list.get(position).getTitleAr()!=null  && !list.get(position).getTitleAr().isEmpty()){
+                    binding.tvItemName.setText(list.get(position).getTitleAr());
+                }else{
+                    binding.tvItemName.setText(list.get(position).getName());
+                }
+            }else{
+                binding.tvItemName.setText(list.get(position).getName());
+            }
             binding.tvLikeCount.setText(""+list.get(position).getNumbers());
 
 

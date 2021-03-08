@@ -105,7 +105,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         SharedPrefManager tempPrefenceManager = SharedPrefManager.getInstance(context);
                         List<OrderListResponse.ResultBean> tempPrintList = loadSharedPreferencesLogList(tempPrefenceManager);
                         if (tempPrintList.size() > 0) {
-                            autoPrint();
+//                            autoPrint();
                         }
                     }
                     callGetStatusApi();
@@ -223,13 +223,13 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                         List<OrderListResponse.ResultBean> tempPrintList = loadSharedPreferencesLogList(tempPrefenceManager);
                         if (tempPrintList.size() > 0) {
                             for (int i = 0; i < tempPrintList.size(); i++) {
-                                AutoPrinterFuntionality orderDetailDialog = new AutoPrinterFuntionality(HomeActivity.this, tempPrintList.get(i), i);
+//                                AutoPrinterFuntionality orderDetailDialog = new AutoPrinterFuntionality(HomeActivity.this, tempPrintList.get(i), i);
                               /*  orderDetailDialog.show();
                                 orderDetailDialog.setCancelable(true);
                                 orderDetailDialog.setOnDismissListener(D -> {
                                     orderDetailDialog.dismiss();
                                 });*/
-                                orderDetailDialog.startPrintingReceipt();
+//                                orderDetailDialog.startPrintingReceipt();
                             }
                         }
                     } catch (WindowManager.BadTokenException e) {

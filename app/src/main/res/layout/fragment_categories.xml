@@ -122,7 +122,7 @@
                                 android:layout_marginStart="@dimen/_10dp"
                                 android:buttonTint="@color/orange"
                                 android:fontFamily="@font/cairo_regular"
-                                android:text="@string/secondary"
+                                android:text="@string/custom_category"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/_16sp" />
                         </RadioGroup>
@@ -162,25 +162,55 @@
                                 app:layout_constraintEnd_toStartOf="@+id/tvDropDown" />
                         </android.support.constraint.ConstraintLayout>
                     </LinearLayout>
-                    <EditText
-                        android:id="@+id/etTittle"
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30dp"
-                        android:layout_marginTop="@dimen/_15dp"
-                        android:background="@drawable/bg_et_border"
-                        android:fontFamily="@font/cairo_light"
-                        android:inputType="textCapWords|text"
-                        android:maxLines="1"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:paddingBottom="@dimen/_2dp"
-                        android:paddingEnd="@dimen/_15dp"
-                        android:paddingStart="@dimen/_15dp"
-                        android:paddingTop="@dimen/_2dp"
-                        android:visibility="gone"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_16sp" />
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/etTittle"
+                            android:layout_width="@dimen/_200dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_marginTop="@dimen/_15dp"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_light"
+                            android:inputType="textCapWords|text"
+                            android:maxLines="1"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:visibility="gone"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:hint="@string/english_name"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+
+
+                        <EditText
+                            android:id="@+id/arabic_name"
+                            android:layout_width="@dimen/_200dp"
+                            android:layout_height="@dimen/_30dp"
+                            android:layout_marginTop="@dimen/_15dp"
+                            android:background="@drawable/bg_et_border"
+                            android:fontFamily="@font/cairo_light"
+                            android:inputType="textCapWords|text"
+                            android:visibility="gone"
+                            android:maxLines="1"
+                            android:focusable="true"
+                            android:hint="@string/arabic_name"
+                            android:focusableInTouchMode="true"
+                            android:paddingBottom="@dimen/_2dp"
+                            android:paddingEnd="@dimen/_15dp"
+                            android:layout_marginStart="@dimen/_15dp"
+                            android:paddingStart="@dimen/_15dp"
+                            android:paddingTop="@dimen/_2dp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_16sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tvPrimaryCategroy"

@@ -54,6 +54,7 @@ public class EditExtrasDialog extends Dialog {
         setCancelable(true);
 
         binding.etPrice.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
+        binding.etArName.setText(extrasData.getTitleAr());
 
         binding.etTittle.setText(extrasData.getTitle());
         binding.etTittle.requestFocus(binding.etTittle.getText().length()-1);;
@@ -121,6 +122,11 @@ public class EditExtrasDialog extends Dialog {
         if(!binding.etTittle.getText().toString().trim().equals(""))
         {
             extrasData.setTitle(binding.etTittle.getText().toString().trim());
+            if (!binding.etArName.getText().toString().trim().equals("")){
+                extrasData.setTitleAr(binding.etArName.getText().toString().trim());
+            }else{
+                AlertUtil.toastMsg(context,context.getString(R.string.please_enter_arabic_name));
+            }
             if(!binding.etPrice.getText().toString().trim().equals(""))
             {
                 extrasData.setPrice(binding.etPrice.getText().toString().trim());

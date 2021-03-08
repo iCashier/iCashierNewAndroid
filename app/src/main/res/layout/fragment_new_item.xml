@@ -42,12 +42,12 @@
 
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="@dimen/_30dp"
-                                android:drawablePadding="@dimen/_10dp"
+                                android:layout_height="@dimen/_50dp"
+                                android:drawablePadding="@dimen/_5dp"
                                 android:drawableStart="@drawable/icon_title"
                                 android:fontFamily="@font/cairo_semibold"
                                 android:gravity="center_vertical"
-                                android:text="@string/name_label"
+                                android:text="@string/arabic_name_title"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/_16sp" />
 
@@ -85,21 +85,57 @@
                             android:orientation="vertical"
                             android:paddingEnd="@dimen/_50dp">
 
-                            <EditText
-                                android:id="@+id/etName"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/_30dp"
-                                android:background="@drawable/bg_et_border"
-                                android:fontFamily="@font/cairo_light"
-                                android:inputType="textCapWords|text"
-                                android:maxLines="1"
-                                android:paddingBottom="@dimen/_2dp"
-                                android:paddingEnd="@dimen/_15dp"
-                                android:paddingStart="@dimen/_15dp"
-                                android:paddingTop="@dimen/_2dp"
-                                android:textAlignment="viewStart"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="@dimen/_16sp" />
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                >
+                                <EditText
+                                    android:id="@+id/etArabic_name"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="@dimen/_30dp"
+                                    android:background="@drawable/bg_et_border"
+                                    android:fontFamily="@font/cairo_light"
+                                    android:inputType="textCapWords|text"
+                                    android:maxLines="1"
+                                    android:paddingBottom="@dimen/_2dp"
+                                    android:paddingEnd="@dimen/_15dp"
+                                    android:paddingStart="@dimen/_15dp"
+                                    android:paddingTop="@dimen/_2dp"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_16sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/_40dp"
+                                    android:drawablePadding="@dimen/_10dp"
+                                    android:fontFamily="@font/cairo_semibold"
+                                    android:gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:text="@string/english_name"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_16sp" />
+
+                                <EditText
+                                    android:id="@+id/etName"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_30dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginStart="10dp"
+                                    android:background="@drawable/bg_et_border"
+                                    android:fontFamily="@font/cairo_light"
+                                    android:inputType="textCapWords|text"
+                                    android:maxLines="1"
+                                    android:paddingBottom="@dimen/_2dp"
+                                    android:paddingEnd="@dimen/_15dp"
+                                    android:paddingStart="@dimen/_15dp"
+                                    android:paddingTop="@dimen/_2dp"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_16sp" />
+                            </LinearLayout>
+
 
                             <LinearLayout
                                 android:layout_width="match_parent"

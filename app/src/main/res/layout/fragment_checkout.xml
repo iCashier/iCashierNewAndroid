@@ -114,6 +114,7 @@
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
+                                android:orientation="horizontal"
                                 android:layout_height="wrap_content"
                                 app:layout_constraintEnd_toEndOf="parent">
                                 <TextView
@@ -183,6 +184,33 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/dine_in_tab"
+                                            android:textSize="@dimen/_16sp"
+                                            android:layout_marginTop="@dimen/_10dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:fontFamily="@font/cairo_semibold"
+                                            android:layout_gravity="center_horizontal"
+                                            />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="20dp"
+                                        android:id="@+id/llTakeOut"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="@dimen/_40dp"
+                                            android:layout_height="@dimen/_40dp"
+                                            android:padding="@dimen/_12dp"
+                                            android:background="@drawable/bg_dinein_mode"
+                                            android:src="@drawable/icon_takeout"
+                                            android:id="@+id/imgTakeOut"
+                                            app:layout_constraintStart_toEndOf="@+id/imgPickup"
+                                            app:layout_constraintEnd_toStartOf="@+id/imgHand"
+                                            />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/take_out_tab"
                                             android:textSize="@dimen/_16sp"
                                             android:layout_marginTop="@dimen/_10dp"
                                             android:textColor="@color/colorBlack"

@@ -168,6 +168,8 @@ public class EditDineInCodeDialog extends Dialog{
             setPaymentSelector(binding.imgPaypal);
 
         }
+        binding.imgCash.setSelected(true);
+        isCash=true;
     }
 
 

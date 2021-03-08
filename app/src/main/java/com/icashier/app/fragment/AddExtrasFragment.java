@@ -183,6 +183,7 @@ public class AddExtrasFragment extends Fragment {
             AlertUtil.showProgressDialog(context);
             HashMap<String, String> params = new HashMap<>();
             params.put("title",binding.etTittle.getText().toString().trim());
+            params.put("titleAr",binding.arabicName.getText().toString().trim());
             params.put("type",type);
             params.put("price",binding.etPrice.getText().toString().trim());
 
@@ -209,6 +210,7 @@ public class AddExtrasFragment extends Fragment {
                                     if (extrasListResponse.getCode()==200 ) {
 
                                         binding.etTittle.setText("");
+                                        binding.arabicName.setText("");
                                         binding.etPrice.setText("");
                                         binding.etTittle.requestFocus();
                                         extrasList.clear();
@@ -330,6 +332,7 @@ public class AddExtrasFragment extends Fragment {
             AlertUtil.showProgressDialog(context);
             HashMap<String, String> params = new HashMap<>();
             params.put("title",extraData.getTitle());
+            params.put("titleAr",extraData.getTitleAr());
             params.put("type",extraData.getType());
             params.put("price",extraData.getPrice());
             params.put("id",""+extraData.getId());

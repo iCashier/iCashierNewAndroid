@@ -424,6 +424,7 @@ public class OrderListResponse implements Serializable {
             private int like;
             private int mid;
             private String name;
+            private String titleAr;
             private int numbers;
             private String priceForItem;
             private String qty;
@@ -445,9 +446,23 @@ public class OrderListResponse implements Serializable {
             private int reorder_count;
             private List<ItemsBean> itemsDetails;
             private List<ItemsBean> withItemsDetails;
+            private String category;
 
+            public String getTitleAr() {
+                return titleAr;
+            }
 
+            public void setTitleAr(String titleAr) {
+                this.titleAr = titleAr;
+            }
 
+            public String getCategory() {
+                return category;
+            }
+
+            public void setCategory(String category) {
+                this.category = category;
+            }
 
             public String getAbout() {
                 return about;

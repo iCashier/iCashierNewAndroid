@@ -51,6 +51,7 @@ public class ExtrasListResponse implements Serializable {
         private int id;
         private String uid;
         private String title;
+        private String titleAr;
         private String type;
         private String price;
         private boolean isChecked;
@@ -62,6 +63,14 @@ public class ExtrasListResponse implements Serializable {
             this.type = type;
             this.price = price;
             this.isChecked = isChecked;
+        }
+
+        public String getTitleAr() {
+            return titleAr;
+        }
+
+        public void setTitleAr(String titleAr) {
+            this.titleAr = titleAr;
         }
 
         public boolean isChecked() {

@@ -90,26 +90,29 @@ public class CategoriesFragment extends Fragment {
     private void setRadioButton() {
         binding.rbPrimary.setOnCheckedChangeListener((rb,isChecked)->{
             if(isChecked){
-                binding.clDropDown.setVisibility(View.GONE);
+//                binding.clDropDown.setVisibility(View.GONE);
                 binding.tvPrimaryCategroy.setVisibility(View.VISIBLE);
                 binding.tvTitle.setVisibility(View.VISIBLE);
                 binding.etTittle.setVisibility(View.GONE);
                 binding.tvSubTitle.setVisibility(View.GONE);
+                binding.arabicName.setVisibility(View.GONE);
                 categoryId="";
             }
         });
 
         binding.rbSecondary.setOnCheckedChangeListener((rb,isChecked)->{
             if(isChecked){
-                binding.clDropDown.setVisibility(View.VISIBLE);
+//                binding.clDropDown.setVisibility(View.VISIBLE);
                 binding.tvPrimaryCategroy.setVisibility(View.GONE);
                 binding.tvTitle.setVisibility(View.GONE);
                 binding.etTittle.setVisibility(View.VISIBLE);
                 binding.tvSubTitle.setVisibility(View.VISIBLE);
+                binding.arabicName.setVisibility(View.VISIBLE);
             }
         });
     }
 
+    boolean primarySelected=false;
 
     //=============Mehtod to set onClick listeners=================//
     private void setOnClickListeners() {
@@ -132,6 +135,7 @@ public class CategoriesFragment extends Fragment {
             searchCategoryDialog= new SearchCategoryDialog(context, predefinedCategories, new CatSelectedListener() {
                 @Override
                 public void onCatSelected(PredefinedCategoriesResponse.ResultBean cat) {
+                    primarySelected=true;
                     arabicName=cat.getArabic_name();
                     name=cat.getEnglish_name();
                     if (Locale.getDefault().equals(new Locale("ar","MA"))) {
@@ -292,9 +296,14 @@ public class CategoriesFragment extends Fragment {
                 params.put("cid",categoryId);
                 params.put("name",binding.etTittle.getText().toString().trim());
             }else{
-                params.put("name",name);
-                params.put("arabic_name",arabicName);
-
+                if (primarySelected){
+                    primarySelected=false;
+                    params.put("name",name);
+                    params.put("arabic_name",arabicName);
+                }else{
+                    params.put("name",binding.etTittle.getText().toString().trim());
+                    params.put("arabic_name",binding.arabicName.getText().toString().trim());
+                }
             }
 
 
@@ -342,6 +351,7 @@ public class CategoriesFragment extends Fragment {
 
 
                                             binding.etTittle.setText("");
+                                            binding.arabicName.setText("");
                                             binding.tvPrimaryCategroy.setText("");
 
                                             iconId="";
@@ -696,7 +706,7 @@ public class CategoriesFragment extends Fragment {
             else if(binding.rbSecondary.isChecked())
             {
                 if(!binding.etTittle.getText().toString().trim().equals("")) {
-                    if(!binding.tvDropDown.getText().toString().trim().equals("")){
+                    if(!binding.arabicName.getText().toString().trim().equals("")){
                     if(!iconId.equals(""))
                     {
                         return true;
@@ -705,8 +715,10 @@ public class CategoriesFragment extends Fragment {
                         AlertUtil.toastMsg(context,getString(R.string.empty_icon));
                     }
                 }else{
-                    AlertUtil.toastMsg(context,getString(R.string.empty_primary_category));
-                }
+//                    AlertUtil.toastMsg(context,getString(R.string.empty_primary_category));
+                        AlertUtil.toastMsg(context,"Please enter arabic name.");
+
+                    }
                 }
                 else
                 {

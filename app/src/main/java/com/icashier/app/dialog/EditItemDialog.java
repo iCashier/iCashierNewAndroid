@@ -150,6 +150,7 @@ public class EditItemDialog extends android.support.v4.app.DialogFragment{
         if(getArguments().containsKey(AppConstant.EXISTING_ITEM)) {
             existingItem = (ExistingItemList.ResultBean) getArguments().getSerializable(AppConstant.EXISTING_ITEM);
             binding.etName.setText(existingItem.getName());
+            binding.etArabicName.setText(existingItem.getTitleAr());
             binding.etAbout.setText(existingItem.getAbout());
             if(Integer.parseInt(existingItem.getQty())>0){
                 binding.etQuantity.setText(existingItem.getQty());
@@ -332,27 +333,32 @@ public class EditItemDialog extends android.support.v4.app.DialogFragment{
     //=============Mehtod to validate user input===========//
     private boolean isInputValid() {
         if (!binding.etName.getText().toString().trim().equals("")) {
-            if (binding.etQuantity.getText().toString().trim().equals("")||Float.parseFloat(binding.etQuantity.getText().toString().trim())!=0) {
-                if(!binding.etCalories.getText().toString().trim().equals("")) {
-                    if (!binding.tvPrimary.getText().toString().equals("")) {
-                        if (!binding.tvSecondary.getText().toString().equals("")||true) {
+            if (!binding.etArabicName.getText().toString().trim().equals("")){
+                if (binding.etQuantity.getText().toString().trim().equals("")||Float.parseFloat(binding.etQuantity.getText().toString().trim())!=0) {
+                    if(!binding.etCalories.getText().toString().trim().equals("")) {
+                        if (!binding.tvPrimary.getText().toString().equals("")) {
+                            if (!binding.tvSecondary.getText().toString().equals("")||true) {
 
-                            getAllEditTextValues();
+                                getAllEditTextValues();
 
+                            } else {
+                                AlertUtil.toastMsg(context, context.getString(R.string.empty_secondary_category));
+                            }
                         } else {
-                            AlertUtil.toastMsg(context, context.getString(R.string.empty_secondary_category));
+                            AlertUtil.toastMsg(context, context.getString(R.string.empty_primary_category));
                         }
-                    } else {
-                        AlertUtil.toastMsg(context, context.getString(R.string.empty_primary_category));
+                    }else{
+                        AlertUtil.toastMsg(context, getString(R.string.empty_calories));
+
                     }
-                }else{
-                    AlertUtil.toastMsg(context, getString(R.string.empty_calories));
+                } else {
+                    AlertUtil.toastMsg(context, context.getString(R.string.invalid_qty));
 
                 }
-            } else {
-                AlertUtil.toastMsg(context, context.getString(R.string.invalid_qty));
-
+            }else{
+                AlertUtil.toastMsg(context, context.getString(R.string.please_enter_arabic_name));
             }
+
         } else {
             AlertUtil.toastMsg(context, context.getString(R.string.empty_name));
         }
@@ -920,6 +926,7 @@ public class EditItemDialog extends android.support.v4.app.DialogFragment{
             HashMap<String, String> params = new HashMap<>();
             params.put("id",""+existingItem.getId());
             params.put("name", binding.etName.getText().toString().trim());
+            params.put("titleAr", binding.etArabicName.getText().toString().trim());
             params.put("price", itemPrice);
             params.put("size", itemSize);
             params.put("sale_price", priceDiscount);

@@ -11,6 +11,9 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -74,6 +77,7 @@ import com.icashier.app.printer.AutoPrinterFuntionality;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,6 +85,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+
+import io.nlopez.smartlocation.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.SmartLocation;
+import io.nlopez.smartlocation.location.config.LocationAccuracy;
+import io.nlopez.smartlocation.location.config.LocationParams;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -194,8 +203,8 @@ public class MerchantHomeFragment extends Fragment {
             binding.imgPickup.setEnabled(false);
             binding.imgParking.setEnabled(false);
             binding.imgReservation.setEnabled(false);*/
-            binding.etTittle.setEnabled(false);
-            binding.imgCamera1.setEnabled(false);
+//            binding.etTittle.setEnabled(false);
+//            binding.imgCamera1.setEnabled(false);
         }
     }
 
@@ -495,9 +504,9 @@ public class MerchantHomeFragment extends Fragment {
                 lat = prefManager.getString("SAVE_LAT_TEMP","");
                 lng = prefManager.getString("SAVE_LON_TEMP","");
                 LatLng latLng = new LatLng(Double.valueOf(lat), Double.valueOf(lng));
-                googleMap.clear();
+                /*googleMap.clear();
                 //googleMap.addMarker(markerOptions.position(latLng));
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0f));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0f));*/
             }
            // prefManager.saveString("SAVE_LAT_TEMP", String.valueOf(task.getPlace().getLatLng().latitude));
           //  prefManager.saveString("SAVE_LON_TEMP", String.valueOf(task.getPlace().getLatLng().longitude));
@@ -506,7 +515,42 @@ public class MerchantHomeFragment extends Fragment {
             lng = lng;
 
         }
+        binding.tvLocation.setEnabled(true);
+        LocationParams.Builder builder = new LocationParams.Builder()
+                .setAccuracy(LocationAccuracy.HIGH)
+                .setDistance(0)
+                .setInterval(5000);
 
+        SmartLocation.with(getActivity())
+                .location()
+                .continuous()
+                .config(builder.build())
+                .start(new OnLocationUpdatedListener() {
+                    @Override
+                    public void onLocationUpdated(Location location) {
+                        try {
+                        lat = String.valueOf(location.getLatitude());
+                        lng = String.valueOf(location.getLongitude());
+                        LatLng latLng = new LatLng(Double.valueOf(lat), Double.valueOf(lng));
+                        googleMap.clear();
+                        //googleMap.addMarker(markerOptions.position(latLng));
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17.0f));
+                        Geocoder geocoder;
+                        List<Address> addresses;
+                        geocoder = new Geocoder(getActivity(), Locale.getDefault());
+
+                            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+                            String address = addresses.get(0).getAddressLine(0);
+                            binding.tvLocation.setText(address);
+                            prefManager.saveString("SAVE_LOC_TEMP", address);
+                            prefManager.saveString("SAVE_LAT_TEMP", String.valueOf(location.getLatitude()));
+                            prefManager.saveString("SAVE_LON_TEMP", String.valueOf(location.getLongitude()));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
       //  autoPrint();
     }
 
@@ -611,7 +655,7 @@ public class MerchantHomeFragment extends Fragment {
                         String address = Utilities.getCurrentAddress(googleMap.getCameraPosition().target.latitude, googleMap.getCameraPosition().target.longitude, context);
 
                         if (address != null) {
-                            binding.tvLocation.setText(address);
+//                            binding.tvLocation.setText(address);
                         }
                     });
 
@@ -629,7 +673,7 @@ public class MerchantHomeFragment extends Fragment {
                                 String address = Utilities.getCurrentAddress(googleMap.getCameraPosition().target.latitude, googleMap.getCameraPosition().target.longitude, context);
 
                                 if (address != null) {
-                                    binding.tvLocation.setText(address);
+//                                    binding.tvLocation.setText(address);
                                 }
                             }, 2000);
 
@@ -835,13 +879,18 @@ public class MerchantHomeFragment extends Fragment {
         if (merchantData.getTitle().length() > 0) {
             binding.etTittle.setSelection(merchantData.getTitle().length() - 1);
         }
+        if (merchantData.getVat()!=null && !merchantData.getVat().isEmpty()) {
+            binding.vatValue.setText(merchantData.getVat());
+            ServerConstants.vatUser=merchantData.getVat();
+
+        }
         binding.etNetwork.setText(merchantData.getNetwork());
         binding.etPassword.setText(merchantData.getPassword());
 
         if (merchantData.getLocation().equals("")) {
             setDefaultLocation();
         } else {
-            binding.tvLocation.setText(merchantData.getLocation());
+//            binding.tvLocation.setText(merchantData.getLocation());
             lat = "" + merchantData.getLat();
             lng = "" + merchantData.getLng();
             latLng = new LatLng(Double.parseDouble(merchantData.getLat()), Double.parseDouble(merchantData.getLng()));
@@ -907,7 +956,7 @@ public class MerchantHomeFragment extends Fragment {
         //googleMap.addMarker(markerOptions.position(riyadh));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(riyadh, 17.0f));
         String locationName = Utilities.getCurrentAddress(riyadh.latitude, riyadh.longitude, context);
-        binding.tvLocation.setText(locationName);
+//        binding.tvLocation.setText(locationName);
     }
 
     //==========================Method to save merchant detail api=====================//
@@ -931,7 +980,8 @@ public class MerchantHomeFragment extends Fragment {
             params.put("facebook", binding.etFB.getText().toString().trim());
             params.put("twitter", binding.etTwitter.getText().toString().trim());
             params.put("instagram", binding.etInsta.getText().toString().trim());
-
+            params.put("vat", binding.vatValue.getText().toString().trim());
+            ServerConstants.vatUser=binding.vatValue.getText().toString().trim();
             services = "";
             for (int i = 0; i < servicesList.size(); i++) {
                 if (!services.equals("")) {

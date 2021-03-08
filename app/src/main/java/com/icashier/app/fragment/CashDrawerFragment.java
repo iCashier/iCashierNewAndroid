@@ -73,20 +73,24 @@ public class CashDrawerFragment extends Fragment {
                         public void onResponse(String tag, String response) {
                             binding.progressBar.setVisibility(View.GONE);
                             if (Utilities.isValidJson(response)) {
+                                try{
+                                    OrderListResponse orderListResponse= new Gson().fromJson(response, OrderListResponse.class);
+                                    if (orderListResponse != null) {
+                                        if(orderListResponse.getCode()==200){
+                                            orderList.addAll(orderListResponse.getResult());
+                                            adapter.notifyDataSetChanged();
 
-                                OrderListResponse orderListResponse= new Gson().fromJson(response, OrderListResponse.class);
-                                if (orderListResponse != null) {
-                                    if(orderListResponse.getCode()==200){
-                                        orderList.addAll(orderListResponse.getResult());
-                                        adapter.notifyDataSetChanged();
-
-                                    }else{
+                                        }else{
+                                            AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
+                                        }
+                                    } else {
                                         AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
                                     }
-                                } else {
-                                    AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
-                                }
 
+
+                                }catch(Exception e){
+
+                                }
 
                             }
                         }

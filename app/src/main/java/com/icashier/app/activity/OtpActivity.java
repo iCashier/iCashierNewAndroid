@@ -590,11 +590,18 @@ public class OtpActivity extends AppCompatActivity {
                                         Log.e("TAG", otpResponse.getResult().toString());
                                         AlertUtil.toastMsg(context, otpResponse.getMessage());
                                         countDownTimer.cancel();
-                                        Intent intent = new Intent(context, CompletePlansActivity.class);
+                                        /*Intent intent = new Intent(context, CompletePlansActivity.class);
                                         intent.putExtra(AppConstant.SIGNIN_RESPONSE, otpResponse.getResult());
                                         intent.putExtra("PNO", phoneNo);
+                                        startActivity(intent);*/
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.KEY_LOGIN_USER_ID, otpResponse.getResult().getUid());
+                                        SharedPrefManager.getInstance(context).saveString(AppConstant.USER_INFO, new Gson().toJson(otpResponse.getResult()));
+                                        Intent intent = new Intent(context, HomeActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                                        intent.putExtra(AppConstant.SIGNIN_RESPONSE, otpResponse.getResult());
+//                                        intent.putExtra("PNO", phoneNo);
                                         startActivity(intent);
-
+                                        finish();
                                     } else {
 
                                         AlertUtil.toastMsg(context, otpResponse.getMessage());

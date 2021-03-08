@@ -316,7 +316,7 @@
     <string name="payment_type">Payment Type :</string>
     <string name="address_label">Address :</string>
     <string name="username">Username :</string>
-    <string name="customer_name">Customer Name:</string>
+    <string name="customer_name">Customer Name : </string>
     <string name="order_status">Order Status:</string>
     <string name="order_id">Order ID :</string>
     <string name="date">Date :</string>
@@ -598,5 +598,16 @@
     <string name="ref_nos">Ref NO:</string>
     <string name="merchant_is">Merchant is :</string>
     <string name="payment_method">PAYMENT METHOD</string>
+    <string name="vat">VAT</string>
+    <string name="itemcategory">Item category</string>
+    <string name="custom_category">Custom Category</string>
+    <string name="english_name">English Name</string>
+    <string name="arabic_name">Arabic Name</string>
+    <string name="title_english_name">Title English:</string>
+    <string name="tittle_arabic">Title Arabic:</string>
+    <string name="arabic_name_title">Arabic Name :</string>
+    <string name="please_enter_arabic_name">Please enter arabic name.</string>
+    <string name="qr_code_title">QR Code Title :</string>
+    <string name="mobile_no">Mobile Number :</string>
 
 </resources>

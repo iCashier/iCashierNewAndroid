@@ -47,7 +47,6 @@ public class EditCategoryDialog extends Dialog {
         setCancelable(true);
         binding.etTittle.setText(catName);
         binding.etTittle.requestFocus(binding.etTittle.getText().length() - 1);
-        ;
 
         binding.tvUpdate.setOnClickListener(V -> {
             Utilities.hideSoftKeyboard(context);

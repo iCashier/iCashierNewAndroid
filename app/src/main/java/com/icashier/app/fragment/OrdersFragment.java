@@ -1,6 +1,4 @@
 package com.icashier.app.fragment;
-
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -60,8 +58,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-
 public class OrdersFragment extends Fragment {
 
     public List<CartItemModel> cartItems = new ArrayList<>();
@@ -164,7 +160,6 @@ public class OrdersFragment extends Fragment {
         setPaging();
 
         handleItemSelection();
-
         return binding.getRoot();
     }
 
@@ -406,6 +401,7 @@ public class OrdersFragment extends Fragment {
         //cartItemModel.setCategory(itemList.get(selectedItem).getCategory());
         //cartItemModel.setSub_category(itemList.get(selectedItem).getSub_category());
         cartItemModel.setName(itemList.get(selectedItem).getName());
+        cartItemModel.setTitleAr(itemList.get(selectedItem).getTitleAr());
         cartItemModel.setQty(itemList.get(selectedItem).getQty());
         cartItemModel.setSale_percent(itemList.get(selectedItem).getSale_percent());
         cartItemModel.setSale_price(itemList.get(selectedItem).getSale_price());
@@ -421,10 +417,12 @@ public class OrdersFragment extends Fragment {
         if (itemList.get(selectedItem).getType().equals("meal")) {
             cartItemModel.setItems(itemList.get(selectedItem).getItems());
             cartItemModel.setTitle(itemList.get(selectedItem).getTitle());
+            cartItemModel.setTitleAr(itemList.get(selectedItem).getTitleAr());
         } else if (itemList.get(selectedItem).getType().equals("deal")) {
             cartItemModel.setItemsDetails(itemList.get(selectedItem).getItemsDetails());
             cartItemModel.setWithItemsDetails(itemList.get(selectedItem).getWithItemsDetails());
             cartItemModel.setTitle(itemList.get(selectedItem).getTitle());
+            cartItemModel.setTitleAr(itemList.get(selectedItem).getTitleAr());
         }
         List<CartItemModel.ExtrasBean> extrasList = new ArrayList<>();
         if (!itemList.get(selectedItem).getType().equals("meal") && !itemList.get(selectedItem).getType().equals("deal")) {
@@ -1789,6 +1787,8 @@ public class OrdersFragment extends Fragment {
 
             apiRequest = new RestClient.ApiRequest(context);
 
+            String tokennew= SharedPrefManager.getInstance(context).getString(AppConstant.ACCESS_TOKEN, "");
+            String type= SharedPrefManager.getInstance(context).getString(AppConstant.USER_TYPE, AppConstant.TYPE_MERCHANT);
             apiRequest.setUrl(ServerConstants.BASE_URL + ServerConstants.GET_ORDER_LIST)
                     .setMethod(RestClient.ApiRequest.METHOD_POST)
                     .setParams(params)
@@ -1799,24 +1799,28 @@ public class OrdersFragment extends Fragment {
                         public void onResponse(String tag, String response) {
                             binding.progressBar.setVisibility(View.GONE);
                             if (Utilities.isValidJson(response)) {
-                                OrderListResponse orderListResponse = new Gson().fromJson(response, OrderListResponse.class);
-                                if (orderListResponse != null) {
-                                    if (orderListResponse.getCode() == 200) {
-                                        orderList.clear();
-                                        orderList.addAll(orderListResponse.getResult());
-                                        orderListAdapter.notifyDataSetChanged();
-                                        if (orderList.size() > 0) {
-                                            binding.tvEmptyOrder.setVisibility(View.GONE);
+                                try{
+                                    OrderListResponse orderListResponse = new Gson().fromJson(response, OrderListResponse.class);
+                                    if (orderListResponse != null) {
+                                        if (orderListResponse.getCode() == 200) {
+                                            orderList.clear();
+                                            orderList.addAll(orderListResponse.getResult());
+                                            orderListAdapter.notifyDataSetChanged();
+                                            if (orderList.size() > 0) {
+                                                binding.tvEmptyOrder.setVisibility(View.GONE);
+                                            } else {
+                                                binding.tvEmptyOrder.setVisibility(View.VISIBLE);
+                                            }
                                         } else {
-                                            binding.tvEmptyOrder.setVisibility(View.VISIBLE);
+                                            AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
                                         }
                                     } else {
                                         AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
                                     }
-                                } else {
-                                    AlertUtil.toastMsg(context, context.getString(R.string.error_generic));
-                                }
 
+                                }catch(Exception e){
+                                    Log.e("ErrorInOrder",e.getMessage());
+                                }
 
                             }
                         }
@@ -2072,5 +2076,7 @@ public class OrdersFragment extends Fragment {
         super.onStop();
         LocalBroadcastManager.getInstance(context).unregisterReceiver(mMessageReceiver);
     }
+
+
 
 }

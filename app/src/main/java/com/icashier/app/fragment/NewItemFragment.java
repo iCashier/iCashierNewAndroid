@@ -211,28 +211,32 @@ public class NewItemFragment extends Fragment {
     //==============Method to validate user input=============//
     private boolean isInputValid() {
         if (!binding.etName.getText().toString().trim().equals("")) {
-            if (binding.etQuantity.getText().toString().trim().equals("")||Float.parseFloat(binding.etQuantity.getText().toString().trim())!=0) {
-                if(!binding.etCalories.getText().toString().trim().equals("")) {
-                    if (!binding.tvPrimary.getText().toString().equals("")) {
-                        if (!binding.tvSecondary.getText().toString().equals("")||true) {
-                            if (imgItem != null) {
-                                getAllEditTextValues();
+            if (!binding.etArabicName.getText().toString().trim().equals("")){
+                if (binding.etQuantity.getText().toString().trim().equals("")||Float.parseFloat(binding.etQuantity.getText().toString().trim())!=0) {
+                    if(!binding.etCalories.getText().toString().trim().equals("")) {
+                        if (!binding.tvPrimary.getText().toString().equals("")) {
+                            if (!binding.tvSecondary.getText().toString().equals("")||true) {
+                                if (imgItem != null) {
+                                    getAllEditTextValues();
+                                } else {
+                                    AlertUtil.toastMsg(context, context.getString(R.string.empty_item_image));
+                                }
                             } else {
-                                AlertUtil.toastMsg(context, context.getString(R.string.empty_item_image));
+                                AlertUtil.toastMsg(context, context.getString(R.string.empty_secondary_category));
                             }
                         } else {
-                            AlertUtil.toastMsg(context, context.getString(R.string.empty_secondary_category));
+                            AlertUtil.toastMsg(context, context.getString(R.string.empty_primary_category));
                         }
-                    } else {
-                        AlertUtil.toastMsg(context, context.getString(R.string.empty_primary_category));
+                    }else{
+                        AlertUtil.toastMsg(context, getString(R.string.empty_calories));
                     }
-                }else{
-                    AlertUtil.toastMsg(context, getString(R.string.empty_calories));
+                } else {
+                    AlertUtil.toastMsg(context, context.getString(R.string.invalid_qty));
                 }
-            } else {
-                AlertUtil.toastMsg(context, context.getString(R.string.invalid_qty));
-
+            }else{
+                AlertUtil.toastMsg(context, context.getString(R.string.please_enter_arabic_name));
             }
+
         } else {
             AlertUtil.toastMsg(context, context.getString(R.string.empty_name));
         }
@@ -812,6 +816,7 @@ public class NewItemFragment extends Fragment {
             }
             HashMap<String, String> params = new HashMap<>();
             params.put("name", binding.etName.getText().toString().trim());
+            params.put("titleAr", binding.etArabicName.getText().toString().trim());
             params.put("price", itemPrice);
             params.put("size", itemSize);
             params.put("sale_price", priceDiscount);
@@ -907,6 +912,7 @@ public class NewItemFragment extends Fragment {
         binding.etAbout.setText("");
         binding.etQuantity.setText("");
         binding.etName.setText("");
+        binding.etArabicName.setText("");
         addedSizeList.clear();
         binding.etCalories.setText("");
         binding.tvPrimary.setText("");

@@ -641,6 +641,40 @@
 
                                         </LinearLayout>
 
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="10dp"
+                                            android:weightSum="2"
+                                            android:orientation="horizontal">
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="@dimen/_30dp"
+                                                android:layout_marginTop="@dimen/_5dp"
+                                                android:text="@string/vat"
+                                                android:layout_weight="0.4"
+                                                android:textColor="@color/colorBlack"
+                                                android:textSize="@dimen/_16sp" />
+                                            <EditText
+                                                android:id="@+id/vat_value"
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:background="@drawable/bg_et_border"
+                                                android:layout_weight="1.4"
+                                                android:fontFamily="@font/cairo_light"
+                                                android:inputType="textCapWords|text"
+                                                android:maxLines="1"
+                                                android:paddingStart="@dimen/_15dp"
+                                                android:paddingTop="@dimen/_2dp"
+                                                android:paddingEnd="@dimen/_15dp"
+                                                android:paddingBottom="@dimen/_2dp"
+                                                android:textAlignment="viewStart"
+                                                android:textColor="@color/colorBlack"
+                                                android:textSize="@dimen/_16sp" />
+
+                                        </LinearLayout>
+
+
                                         <android.support.constraint.ConstraintLayout
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"

@@ -8,13 +8,20 @@ android {
         applicationId "com.icashier.app"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 13
-        versionName "1.08"
+        versionCode 17
+        versionName "1.12"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
     }
 
+ /*   for huwaieupload
+    in icashierjks folder icashier.jks
+    storePassword "android"
+    keyAlias "key0"
+    keyPassword "android"*/
+
+    //for google
     signingConfigs {
         release {
             storeFile file("../icashier.jks")
@@ -95,6 +102,8 @@ dependencies {
     implementation project(':paytabs_sdk-v4.0.0')
     implementation project(':multipleimageselect')
     implementation files('libs/ePOS2.jar')
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'io.nlopez.smartlocation:library:3.3.3'
 
 
 }

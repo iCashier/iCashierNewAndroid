@@ -406,6 +406,7 @@ public class MenuResponse implements Serializable {
                    // private int category;
                    // private int sub_category;
                     private String name;
+                    private String titleAr;
                     private String qty;
                     private String sale_percent;
                     private String sale_price;
@@ -446,8 +447,13 @@ public class MenuResponse implements Serializable {
                     private List<AllergiesModel.Result> allergieDetail;
 
 
+                    public String getTitleAr() {
+                        return titleAr;
+                    }
 
-
+                    public void setTitleAr(String titleAr) {
+                        this.titleAr = titleAr;
+                    }
 
                     public int getId() {
                         return id;

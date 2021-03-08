@@ -608,6 +608,16 @@
     <string name="ref_nos">مصدر رقم:</string>
     <string name="merchant_is">التاجر هو:</string>
     <string name="payment_method">PAYMENT METHOD</string>
-
+    <string name="vat">ضريبة القيمة المضافة</string>
+    <string name="itemcategory">العنصر فئة</string>
+    <string name="custom_category">فئة مخصصة</string>
+    <string name="english_name">الاسم الانجليزي</string>
+    <string name="arabic_name">الاسم العربي</string>
+    <string name="title_english_name">العنوان باللغة الإنجليزية:</string>
+    <string name="tittle_arabic">العنوان العربي:</string>
+    <string name="arabic_name_title">الاسم العربي:</string>
+    <string name="please_enter_arabic_name">الرجاء إدخال الاسم العربي.</string>
+    <string name="qr_code_title">عنوان رمز الاستجابة السريعة:</string>
+    <string name="mobile_no">رقم الهاتف المحمول :</string>
 
 </resources>

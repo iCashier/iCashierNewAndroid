@@ -62,6 +62,7 @@ public class ExistingItemList implements Serializable{
         private CategoryBean category;
         private SubCategoryBean sub_category;
         private String name;
+        private String titleAr;
         private String price;
         private String qty;
         private String size;
@@ -76,6 +77,14 @@ public class ExistingItemList implements Serializable{
         String selectedPrice;
         private String calories;
         private String allergies;
+
+        public String getTitleAr() {
+            return titleAr;
+        }
+
+        public void setTitleAr(String titleAr) {
+            this.titleAr = titleAr;
+        }
 
         public String getSelectedSize() {
             return selectedSize;

@@ -820,7 +820,321 @@ public class AutomaticOrderDetailDialog extends Dialog implements ReceiveListene
         finalizeObject();
     }
 
+    private boolean formatPrintData() {
+        Utilities.setLanguage(context);
 
+        StringBuilder textData = new StringBuilder();
+        Bitmap logoData = BitmapFactory.decodeResource(context.getResources(), R.drawable.imenunewprint);
+        boolean isArabic = Utilities.isArabic();
+        int count = 0;
+        int spaces = 0;
+        String space = "";
+        Bitmap logo = null;
+        String name = "";
+        String price = "";
+        int textAlignment = isArabic ? Printer.ALIGN_RIGHT : Printer.ALIGN_LEFT;
+       /* try {
+            logo = BitmapFactory.decodeStream(new URL(orderData.getLogo()).openConnection().getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+
+        try {
+
+//            mPrinter.addTextAlign(Printer.ALIGN_CENTER);
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
+
+
+            mPrinter.addImage(logoData, 0, 0,
+                    logoData.getWidth(),
+                    logoData.getHeight(),
+                    Printer.COLOR_1,
+                    Printer.MODE_MONO,
+                    Printer.HALFTONE_DITHER,
+                    Printer.PARAM_DEFAULT,
+                    Printer.COMPRESS_AUTO);
+           /* if(isArabic) {
+                mPrinter.addTextFont(30);
+            }*/
+            mPrinter.addFeedLine(1);
+
+            mPrinter.addText(binding.tvDate.getText().toString());
+            mPrinter.addFeedLine(1);
+            mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
+//            String tempVarOrderId = !isArabic ? context.getString(R.string.order_id).trim() + "#" + orderData.getSequence_no() :
+//                    "#" + orderData.getSequence_no() + reverseString(context.getString(R.string.order_id).trim());
+            String tempVarOrderId = context.getString(R.string.order_id).trim() + "#" + orderData.getSequence_no();
+            mPrinter.addText(tempVarOrderId.trim());
+            mPrinter.addFeedLine(2);
+
+            mPrinter.addTextSmooth(Printer.TRUE);
+
+            mPrinter.addTextSize(2, 2);
+            mPrinter.addText(orderData.getTitle().trim());
+            mPrinter.addTextSize(1, 1);
+            mPrinter.addFeedLine(2);
+            String tempAddress = orderData.getLocation().trim();//printerLocationPrintArabicBase(orderData.getLocation().trim());
+            Log.e("TAG", "formatPrintData: " + tempAddress);
+            mPrinter.addText(tempAddress);
+            mPrinter.addFeedLine(2);
+            mPrinter.addText(ServerConstants.vatUser +" : ضريبة القيمة المضافة ");
+
+//            mPrinter.addTextAlign(textAlignment);
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
+            mPrinter.addTextSmooth(Printer.PARAM_DEFAULT);
+            mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
+            mPrinter.addFeedLine(2);
+            mPrinter.addText(orderData.getDelivery()+ " : نوع التوصيل ");
+            mPrinter.addFeedLine(1);
+            mPrinter.addText(orderData.getCustomerName()+ " : اسم الزبون ");
+            mPrinter.addFeedLine(1);
+
+            mPrinter.addText(orderData.getPayment()+ " : نوع الدفع ");
+            mPrinter.addFeedLine(1);
+
+            mPrinter.addText(orderData.getAmtTaken()+ " : المبلغ المأخو ");
+            mPrinter.addFeedLine(1);
+            mPrinter.addText(orderData.getChangeGiven()+ " : التغييرات المقدمة ");
+            mPrinter.addFeedLine(2);
+            textData.append("------------------------------------------------");
+            mPrinter.addText(textData.toString().trim());
+            textData.delete(0, textData.length());
+            mPrinter.addFeedLine(1);
+
+            if (orderData.getItems().size() > 0) {
+//                mPrinter.addTextAlign(textAlignment);
+                mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
+                mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
+                String tempVarItem = "المنتجات";
+                mPrinter.addText(tempVarItem/*context.getString(R.string.items)*/.trim());
+                mPrinter.addFeedLine(1);
+                mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
+                for (int i = 0; i < orderData.getItems().size(); i++) {
+                    count++;
+
+                    if (isArabic) {
+                        name = orderData.getItems().get(i).getQtyAddedToCart() + "x " + orderData.getItems().get(i).getName() + " (" + count+ " )";
+                    } else {
+                        name = count + ") " + orderData.getItems().get(i).getName() + " x" + orderData.getItems().get(i).getQtyAddedToCart();
+                    }
+
+                    if (orderData.getItems().get(i).getTitleAr()!=null && !orderData.getItems().get(i).getTitleAr().isEmpty()){
+                        name = orderData.getItems().get(i).getQtyAddedToCart() + "x " + orderData.getItems().get(i).getTitleAr() + " ." + count;
+                    }
+
+                    price = "SR " + orderData.getItems().get(i).getPriceForItem();
+                    if (name.length() > 25) {
+                        name = name.substring(0, 24) + "..";
+                    }
+                    spaces = 48 - name.length() - price.length();
+                    space = "";
+                    for (int j = 0; j < spaces; j++) {
+                        space += " ";
+                    }
+
+
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
+                    mPrinter.addFeedLine(1);
+                }
+
+            }
+
+            if (orderData.getMeal().size() > 0) {
+                mPrinter.addFeedLine(1);
+//                mPrinter.addTextAlign(textAlignment);
+                mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
+                mPrinter.addText(context.getString(R.string.meals).trim());
+                mPrinter.addFeedLine(1);
+                mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
+
+                for (int i = 0; i < orderData.getMeal().size(); i++) {
+                    count++;
+                    if (isArabic) {
+                        name = orderData.getMeal().get(i).getQtyAddedToCart() + "x " + orderData.getMeal().get(i).getTitle() + " (" + count;
+                    } else {
+                        name = count + ") " + orderData.getMeal().get(i).getTitle() + " x" + orderData.getMeal().get(i).getQtyAddedToCart();
+                    }
+                    price = "SR " + orderData.getMeal().get(i).getPriceForItem();
+                    if (name.length() > 25) {
+                        name = name.substring(0, 24) + "..";
+                    }
+                    spaces = 48 - name.length() - price.length();
+                    space = "";
+                    for (int j = 0; j < spaces; j++) {
+                        space += " ";
+                    }
+
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
+                    mPrinter.addFeedLine(1);
+                }
+
+            }
+
+            if (orderData.getDeals().size() > 0) {
+                mPrinter.addFeedLine(1);
+//                mPrinter.addTextAlign(textAlignment);
+                mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
+                mPrinter.addText(context.getString(R.string.deals).trim());
+                mPrinter.addFeedLine(1);
+                mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
+
+                for (int i = 0; i < orderData.getDeals().size(); i++) {
+                    count++;
+                    if (isArabic) {
+                        name = orderData.getDeals().get(i).getQtyAddedToCart() + "x " + orderData.getDeals().get(i).getTitle() + " (" + count;
+                    } else {
+                        name = count + ") " + orderData.getDeals().get(i).getTitle() + " x" + orderData.getDeals().get(i).getQtyAddedToCart();
+                    }
+                    price = "SR " + orderData.getDeals().get(i).getPriceForItem();
+                    if (name.length() > 25) {
+                        name = name.substring(0, 24) + "..";
+                    }
+                    spaces = 48 - name.length() - price.length();
+                    space = "";
+                    for (int j = 0; j < spaces; j++) {
+                        space += " ";
+                    }
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
+                    mPrinter.addFeedLine(1);
+                }
+
+            }
+
+            textData.append("------------------------------------------------");
+            mPrinter.addText(textData.toString().trim());
+            textData.delete(0, textData.length());
+            mPrinter.addFeedLine(1);
+
+
+//            name = !isArabic ? context.getString(R.string.subtotal) : reverseString(context.getString(R.string.subtotal));
+            name = "المجموع الفرعي ";
+
+            price = binding.tvSubTotal.getText().toString();
+
+            spaces = 48 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+//            name = !isArabic ? context.getString(R.string.tax) : reverseString(context.getString(R.string.tax));
+            name ="القيمة المضافة ";
+            price = binding.tvTax.getText().toString();
+            spaces = 48 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+            name ="رسوم التوصيل ";
+            price = binding.tvDeliveryCharges.getText().toString();
+            spaces = 48 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+
+
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+            name ="المبلغ المخصص ";
+            price = binding.tvCustomAmount.getText().toString();
+            spaces = 48 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+
+
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+            if (orderData.getCustomAmount() > 0) {
+
+                name = !isArabic ? context.getString(R.string.custom_amount) : reverseString(context.getString(R.string.custom_amount));
+                price = binding.tvCustomAmount.getText().toString();
+                spaces = 48 - name.length() - price.length();
+                space = "";
+                for (int i = 0; i < spaces; i++) {
+                    space += " ";
+                }
+//                mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                mPrinter.addText(price + space + name);
+                mPrinter.addFeedLine(1);
+
+            }
+
+            mPrinter.addText("------------------------------------------------");
+            mPrinter.addFeedLine(1);
+
+            mPrinter.addTextSize(2, 2);
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
+
+            name = "المجموع";
+            price = binding.tvTotal.getText().toString();
+            spaces = 24 - name.length() - price.length();
+            space = "";
+            for (int i = 0; i < spaces; i++) {
+                space += " ";
+            }
+
+//            mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+            mPrinter.addText(price + space + name);
+            mPrinter.addFeedLine(1);
+
+
+            mPrinter.addTextSize(1, 1);
+            mPrinter.addTextAlign(Printer.ALIGN_RIGHT);
+            mPrinter.addText("------------------------------------------------");
+
+
+            if (orderData.getChangeGiven() != null && !orderData.getChangeGiven().equals("NULL") && !orderData.getChangeGiven().equals("")) {
+                mPrinter.addFeedLine(1);
+                if (Float.parseFloat(orderData.getChangeGiven()) > 0) {
+                    name = !isArabic ? context.getString(R.string.change).trim() : reverseString(context.getString(R.string.change)).trim();
+                    price = binding.tvChange.getText().toString();
+                    spaces = 48 - name.length() - price.length();
+                    space = "";
+                    for (int i = 0; i < spaces; i++) {
+                        space += " ";
+                    }
+
+//                    mPrinter.addText((!isArabic ? (name + space + price) : (price + space + name)).trim());
+                    mPrinter.addText(price + space + name);
+                }
+            }
+            mPrinter.addFeedLine(2);
+            mPrinter.addCut(Printer.CUT_FEED);
+            mPrinter.addPulse(Printer.DRAWER_2PIN, Printer.PULSE_100);
+        } catch (Exception e) {
+            //ShowMsg.showException(e, "Print data", context);
+            return false;
+        }
+        return true;
+    }
+
+
+/*
     private boolean formatPrintData() {
         Utilities.setLanguage(context);
 
@@ -854,9 +1168,11 @@ public class AutomaticOrderDetailDialog extends Dialog implements ReceiveListene
                     Printer.HALFTONE_DITHER,
                     Printer.PARAM_DEFAULT,
                     Printer.COMPRESS_AUTO);
-           /* if(isArabic) {
+           */
+/* if(isArabic) {
                 mPrinter.addTextFont(30);
-            }*/
+            }*//*
+
             mPrinter.addFeedLine(1);
 
             mPrinter.addTextSmooth(Printer.TRUE);
@@ -893,7 +1209,9 @@ public class AutomaticOrderDetailDialog extends Dialog implements ReceiveListene
                 mPrinter.addTextAlign(textAlignment);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.TRUE, Printer.TRUE, Printer.COLOR_4);
                 String tempVarItem = !isArabic ? context.getString(R.string.items) : reverseString(context.getString(R.string.items));
-                mPrinter.addText(tempVarItem/*context.getString(R.string.items)*/.trim());
+                mPrinter.addText(tempVarItem*/
+/*context.getString(R.string.items)*//*
+.trim());
                 mPrinter.addFeedLine(1);
                 mPrinter.addTextStyle(Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT, Printer.PARAM_DEFAULT);
                 for (int i = 0; i < orderData.getItems().size(); i++) {
@@ -1073,6 +1391,7 @@ public class AutomaticOrderDetailDialog extends Dialog implements ReceiveListene
         }
         return true;
     }
+*/
 
     private String printerLocationPrintArabicBase(String trimLoc) {
         StringBuilder finalString = new StringBuilder(" ");

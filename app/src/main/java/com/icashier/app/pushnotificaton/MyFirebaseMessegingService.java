@@ -58,7 +58,6 @@ public class MyFirebaseMessegingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: " + remoteMessage.getFrom());
@@ -88,12 +87,15 @@ public class MyFirebaseMessegingService extends FirebaseMessagingService {
                         Log.d(TAG, "onMessageReceived2************: "+bodyJson);
                         String resultBeans = resultArray.optString(0);
                         ArrayList<OrderListResponse.ResultBean> printNew = new ArrayList<>();
-                        OrderListResponse.ResultBean orderListResponse =
-                                new Gson().fromJson(resultBeans, OrderListResponse.ResultBean .class);
+                        try{
+                            OrderListResponse.ResultBean orderListResponse =
+                                    new Gson().fromJson(resultBeans, OrderListResponse.ResultBean .class);
+                            printNew.add(orderListResponse);
 
+                        }catch(Exception e){
 
+                        }
 
-                        printNew.add(orderListResponse);
                         SharedPrefManager prefManager = SharedPrefManager.getInstance(this);
                         List<OrderListResponse.ResultBean> prevListData = loadSharedPreferencesLogList(prefManager);
                         List<OrderListResponse.ResultBean> printLog = new ArrayList<>();

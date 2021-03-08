@@ -40,7 +40,16 @@ public class CartItemModel implements Serializable {
     private List<ExtrasBean> extrasAddedToCart;
     private String priceForItem;
     private int sale_count;
+    private String titleAr;
 
+
+    public String getTitleAr() {
+        return titleAr;
+    }
+
+    public void setTitleAr(String titleAr) {
+        this.titleAr = titleAr;
+    }
 
     public String getTitle() {
         return title;

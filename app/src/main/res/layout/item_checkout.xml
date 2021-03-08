@@ -14,9 +14,9 @@
             android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35dp"
-            android:layout_marginStart="@dimen/_20dp"
-            android:layout_marginEnd="@dimen/_20dp"
+            android:layout_height="@dimen/_37dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
             android:layout_marginTop="@dimen/_10dp"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/bg_secondary_category"
@@ -52,7 +52,22 @@
                     />
 
             </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sp"
+                    android:fontFamily="@font/cairo_regular"
+                    android:text=""
+                    android:id="@+id/item_category"
+                    />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="@dimen/_0dp"
                 android:layout_height="match_parent"

@@ -31,6 +31,7 @@ public class OrderItemsAdapter extends RecyclerView.Adapter<OrderItemsAdapter.Vi
     Context context;
     List<OrderListResponse.ResultBean.ItemsBean> list;
     LayoutInflater inflater;
+    public static String categoryName="";
     public OrderItemsAdapter(Context context,List<OrderListResponse.ResultBean.ItemsBean> list){
         this.context=context;
         this.list=list;
@@ -163,6 +164,12 @@ public class OrderItemsAdapter extends RecyclerView.Adapter<OrderItemsAdapter.Vi
                     notifyDataSetChanged();
                 });
             }
+            if (categoryName.isEmpty()){
+                binding.itemCategory.setText("N/A");
+            }else{
+                binding.itemCategory.setText(categoryName);
+            }
+            categoryName="";
         }
     }
 }

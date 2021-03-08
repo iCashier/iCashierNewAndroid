@@ -165,6 +165,12 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
             context.onBackPressed();
         });
 
+        binding.imgTakeOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDeliverySelector(binding.imgTakeOut);
+            }
+        });
         binding.imgDineIn.setOnClickListener(V -> {
             setDeliverySelector(binding.imgDineIn);
         });
@@ -272,6 +278,7 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
             binding.imgPickup.setSelected(false);
             binding.imgInstaDelivery.setSelected(false);
             binding.imgSwiftDelivery.setSelected(false);
+            binding.imgTakeOut.setSelected(false);
             deliveryMode = AppConstant.TYPE_DINE_IN;
 
         } else if (img == binding.imgDelivery) {
@@ -281,6 +288,7 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
             binding.imgInstaDelivery.setSelected(false);
             binding.imgSwiftDelivery.setSelected(false);
             deliveryMode = AppConstant.TYPE_DELIVERY;
+            binding.imgTakeOut.setSelected(false);
 
         } else if (img == binding.imgPickup) {
             binding.imgDineIn.setSelected(false);
@@ -289,6 +297,7 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
             binding.imgInstaDelivery.setSelected(false);
             binding.imgSwiftDelivery.setSelected(false);
             deliveryMode = AppConstant.TYPE_PICKUP;
+            binding.imgTakeOut.setSelected(false);
 
         } else if (img == binding.imgSwiftDelivery) {
             binding.imgDineIn.setSelected(false);
@@ -297,6 +306,7 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
             binding.imgInstaDelivery.setSelected(false);
             binding.imgSwiftDelivery.setSelected(true);
             deliveryMode = AppConstant.TYPE_SWIFT_DELIVERY;
+            binding.imgTakeOut.setSelected(false);
 
         } else if (img == binding.imgInstaDelivery) {
             binding.imgDineIn.setSelected(false);
@@ -305,10 +315,19 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
             binding.imgInstaDelivery.setSelected(true);
             binding.imgSwiftDelivery.setSelected(false);
             deliveryMode = AppConstant.TYPE_INSTA_DELIVERY;
+            binding.imgTakeOut.setSelected(false);
 
+        }else if (img == binding.imgTakeOut){
+            binding.imgDineIn.setSelected(false);
+            binding.imgDelivery.setSelected(false);
+            binding.imgPickup.setSelected(false);
+            binding.imgInstaDelivery.setSelected(false);
+            binding.imgSwiftDelivery.setSelected(false);
+            binding.imgTakeOut.setSelected(true);
+            deliveryMode = AppConstant.TYPE_PICKUP;
         }
 
-        if (img == binding.imgDineIn || img == binding.imgPickup) {
+        if (img == binding.imgDineIn || img == binding.imgPickup || img==binding.imgTakeOut) {
             binding.llAddress.setVisibility(View.GONE);
             binding.llCustomerName.setVisibility(View.VISIBLE);
         } else {
@@ -657,7 +676,7 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
                             && !SharedPrefManager.getInstance(context).getString(AppConstant.PRINTER_DEVICES_TARGET, "").trim().isEmpty()) {
                         //binding.llChangePass.setVisibility(View.GONE);
                         targetPrinter = SharedPrefManager.getInstance(context).getString(AppConstant.PRINTER_DEVICES_TARGET, "");
-                        runPrintReceiptSequence();
+//                        runPrintReceiptSequence();
                     } else {
                         new SelectPrinterDialog(context, new PrinterListAdapter.SelectPrinterListener() {
                             @Override
@@ -666,7 +685,7 @@ public class CheckoutFragment extends Fragment implements ReceiveListener {
                                 targetPrinter = target;
                                 SharedPrefManager myPref = SharedPrefManager.getInstance(context);
                                 myPref.saveString(AppConstant.PRINTER_DEVICES_TARGET, target);
-                                runPrintReceiptSequence();
+//                                runPrintReceiptSequence();
                             }
                         }).show();
                     }
